@@ -8,7 +8,9 @@ using Jext;
 public class Monster : Combatant {
 
     [InlineEditor]
-    public ViewSet viewSet, attackSet;
+    protected ViewSet viewSet;
+    [SerializeField]
+    protected AttackSet attackSet;
 
     public override void OnActiveCombatant()
     {
@@ -18,7 +20,7 @@ public class Monster : Combatant {
         {
             if (combatant.teamID == teamID)
                 continue;
-            if (!CanSee(combatant, viewSet))
+            if (!CanSee(combatant, viewSet.views))
                 continue;
 
             OnVisibleOpponent(combatant);
@@ -28,16 +30,16 @@ public class Monster : Combatant {
         OnIdle();
     }
 
-    public virtual bool CanSee(Combatant other, ViewSet set)
+    public virtual bool CanSee<T>(Combatant other, List<T> set) where T : Move
     {
         Vector2Int convertedPosition;
 
-        foreach(View view in set.views)
+        foreach(T t in set)
         {
-            convertedPosition = view.ConvertGridToMovePosition(other.Node.Position, Node.Position);
-            if (view.footPrint[convertedPosition.x, convertedPosition.y])
+            convertedPosition = t.ConvertGridToMovePosition(other.Node.Position, Node.Position);
+            if (t.footPrint[convertedPosition.x, convertedPosition.y])
             {
-                if (!view.directViewRequired)
+                if (!t.directConnectionRequired)
                     return true;
                 if (GameManager.instance.CanSee(Node.Position, other.Node.Position))
                     return true;
@@ -48,7 +50,7 @@ public class Monster : Combatant {
 
     public virtual bool CanAttack(Combatant other)
     {
-        return CanSee(other, attackSet);
+        return CanSee(other, attackSet.attacks);
     }
 
     public override int CompareTo(ICombatable other)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class View : Move
+public class Attack : Move
 {
-    
+    public int damage;
 }

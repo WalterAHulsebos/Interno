@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class View : Move
+public interface IDamagable
 {
-    
+    void OnDamageReceived(int damage);
 }

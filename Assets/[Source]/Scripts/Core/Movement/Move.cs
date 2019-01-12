@@ -14,7 +14,8 @@ public class Move : SerializedScriptableObject
         #endif
         [Range(0, 1f)]
         public float weight = 1;
-        
+        public bool directConnectionRequired;
+
         #if UNITY_EDITOR
             private Color GetWeightColour(float value)
             {
