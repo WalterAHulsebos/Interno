@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Walter\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Walter\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Interno.-1978042536.00" t="ExcludeRecursive" />
+    <e p="D:\Windows Files\Projects\Interno" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="[Source]" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Core" t="Include">
+              <e p="Combat" t="Include">
+                <e p="Combatant.cs" t="Include" />
+                <e p="Monster.cs" t="Include" />
+              </e>
+              <e p="Level Generation" t="Include">
+                <e p="Filler.cs" t="Include" />
+                <e p="Interactable.cs" t="Include" />
+              </e>
+              <e p="Managers" t="Include">
+                <e p="CombatManager.cs" t="Include" />
+                <e p="GameManager.cs" t="Include" />
+                <e p="MovementManager.cs" t="Include" />
+                <e p="Plotter.cs" t="Include" />
+              </e>
+              <e p="Movement" t="Include">
+                <e p="Move.cs" t="Include" />
+                <e p="MoveSet.cs" t="Include" />
+                <e p="PlayerMovement.cs" t="Include" />
+              </e>
+              <e p="Settings" t="Include">
+                <e p="GameSettings.cs" t="Include" />
+              </e>
+              <e p="Utilities" t="Include">
+                <e p="Extension Methods" t="Include">
+                  <e p="DebugExtension.cs" t="Include" />
+                  <e p="DebugExtensionMethods.cs" t="Include" />
+                  <e p="Extension Methods.cs" t="Include" />
+                  <e p="VectorExtensions.cs" t="Include" />
+                </e>
+                <e p="Heap" t="Include">
+                  <e p="Heap.cs" t="Include" />
+                  <e p="Node.cs" t="Include" />
+                </e>
+                <e p="Jext.cs" t="Include" />
+                <e p="ObjectPooler.cs" t="Include" />
+                <e p="ScriptableObjectCreator.cs" t="Include" />
+                <e p="SerializableInterfaces" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="SerializableInterfaceDrawer.cs" t="Include" />
+                  </e>
+                  <e p="SerializableInterface.cs" t="Include" />
+                </e>
+                <e p="Singletons" t="Include">
+                  <e p="PersistentSingleton.cs" t="Include" />
+                  <e p="Singleton.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="UnitySpriteShaders" t="Include">
+                <e p="SpriteShaders" t="Include">
+                  <e p="CameraDepthNormalsTexture.shader" t="Include" />
+                  <e p="CameraDepthTexture.shader" t="Include" />
+                  <e p="CameraNormalsTexture.shader" t="Include" />
+                  <e p="CGIncludes" t="Include">
+                    <e p="Noise" t="Include">
+                      <e p="ClassicNoise2D.hlsl" t="Include" />
+                      <e p="ClassicNoise3D.hlsl" t="Include" />
+                      <e p="Noise2d.cginc" t="Include" />
+                      <e p="Noise3d.cginc" t="Include" />
+                      <e p="SimplexNoise2D.hlsl" t="Include" />
+                      <e p="SimplexNoise3D.hlsl" t="Include" />
+                    </e>
+                    <e p="ShaderMaths.cginc" t="Include" />
+                    <e p="ShaderShared.cginc" t="Include" />
+                    <e p="SimplexNoise3D.hlsl" t="Include" />
+                    <e p="SpriteDissolve.cginc" t="Include" />
+                    <e p="SpriteLighting.cginc" t="Include" />
+                    <e p="SpritePixelLighting.cginc" t="Include" />
+                    <e p="SpriteShadows.cginc" t="Include" />
+                    <e p="SpriteSpecular.cginc" t="Include" />
+                    <e p="SpriteUnlit.cginc" t="Include" />
+                    <e p="SpriteVertexLighting.cginc" t="Include" />
+                  </e>
+                  <e p="DemoScene" t="Include">
+                    <e p="Scripts" t="Include">
+                      <e p="Robot.cs" t="Include" />
+                      <e p="ShaderFloatAnimator.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Editor" t="Include">
+                    <e p="SpriteDiffuseShaderGUI.cs" t="Include" />
+                    <e p="SpriteShaderGUI.cs" t="Include" />
+                  </e>
+                  <e p="SpritesPixelLit.shader" t="Include" />
+                  <e p="SpritesPixelLitDissolve.shader" t="Include" />
+                  <e p="SpritesUnlit.shader" t="Include" />
+                  <e p="SpritesVertexLit.shader" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="Demigiant" t="Include">
+            <e p="DemiLib" t="Include">
+              <e p="Core" t="Include">
+                <e p="DemiLib.xml" t="Include" />
+                <e p="Editor" t="Include">
+                  <e p="DemiEditor.xml" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="DOTween" t="Include">
+              <e p="Modules" t="Include">
+                <e p="DOTweenModuleAudio.cs" t="Include" />
+                <e p="DOTweenModulePhysics.cs" t="Include" />
+                <e p="DOTweenModulePhysics2D.cs" t="Include" />
+                <e p="DOTweenModuleSprite.cs" t="Include" />
+                <e p="DOTweenModuleUI.cs" t="Include" />
+                <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+                <e p="DOTweenModuleUtils.cs" t="Include" />
+              </e>
+              <e p="readme.txt" t="Include" />
+            </e>
+            <e p="DOTweenPro" t="Include">
+              <e p="DOTweenAnimation.cs" t="Include" />
+              <e p="DOTweenProShortcuts.cs" t="Include" />
+              <e p="DOTweenTextMeshPro.cs" t="Include" />
+              <e p="DOTweenTk2d.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="DOTweenAnimationInspector.cs" t="Include" />
+                <e p="DOTweenPreviewManager.cs" t="Include" />
+              </e>
+              <e p="readme.txt" t="Include" />
+            </e>
+            <e p="readme_DOTweenPro.txt" t="Include" />
+          </e>
+          <e p="DoozyUI" t="Include">
+            <e p="Examples" t="Include">
+              <e p="Shared" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="ButtonPresetToText.cs" t="Include" />
+                  <e p="Editor" t="Include">
+                    <e p="ButtonPresetToTextEditor.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+            <e p="PlayMaker" t="Include">
+              <e p="Actions" t="Include">
+                <e p="ApplicationQuitOrClose.cs" t="Include" />
+                <e p="DisableBackButton.cs" t="Include" />
+                <e p="EnableBackButton.cs" t="Include" />
+                <e p="SendButtonClick.cs" t="Include" />
+                <e p="SendGameEvent.cs" t="Include" />
+                <e p="ShowHide.cs" t="Include" />
+                <e p="ShowUINotification.cs" t="Include" />
+                <e p="ToggleMusic.cs" t="Include" />
+                <e p="TogglePause.cs" t="Include" />
+                <e p="ToggleSound.cs" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="PlaymakerEventDispatcherEditor.cs" t="Include" />
+                  <e p="PlaymakerEventDispatcherInspector.cs" t="Include" />
+                </e>
+                <e p="PlaymakerEventDispatcher.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="DUI" t="Include">
+                <e p="DUI.cs" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="DoozyUIControlPanel.cs" t="Include" />
+                <e p="DoozyUIHelper.cs" t="Include" />
+                <e p="DoozyUIRedundancyCheck.cs" t="Include" />
+                <e p="DoozyUIResources.cs" t="Include" />
+                <e p="Editors" t="Include">
+                  <e p="SceneLoaderEditor.cs" t="Include" />
+                  <e p="UIButtonEditor.cs" t="Include" />
+                  <e p="UICanvasEditor.cs" t="Include" />
+                  <e p="UIEffectEditor.cs" t="Include" />
+                  <e p="UIElementEditor.cs" t="Include" />
+                  <e p="UIManagerEditor.cs" t="Include" />
+                  <e p="UINotificationEditor.cs" t="Include" />
+                  <e p="UINotificationManagerEditor.cs" t="Include" />
+                  <e p="UIToggleEditor.cs" t="Include" />
+                  <e p="UITriggerEditor.cs" t="Include" />
+                </e>
+                <e p="Loaders" t="Include">
+                  <e p="DUIHierarchyManager.cs" t="Include" />
+                  <e p="DUIMissingFoldersCreator.cs" t="Include" />
+                  <e p="DUISymbolLoader.cs" t="Include" />
+                  <e p="DUIUpgradeManager.cs" t="Include" />
+                </e>
+                <e p="SceneLoaderInspector.cs" t="Include" />
+                <e p="ScriptableObjects" t="Include">
+                  <e p="ControlPanelWindowSettings.cs" t="Include" />
+                  <e p="DUIButtonLinks.cs" t="Include" />
+                  <e p="DUIData.cs" t="Include" />
+                  <e p="DUINewsArticles.cs" t="Include" />
+                  <e p="DUIVersion.cs" t="Include" />
+                </e>
+                <e p="UIButtonInspector.cs" t="Include" />
+                <e p="UIEffectInspector.cs" t="Include" />
+                <e p="UIElementInspector.cs" t="Include" />
+                <e p="UIManagerInspector.cs" t="Include" />
+                <e p="UINotificationInspector.cs" t="Include" />
+                <e p="UITriggerInspector.cs" t="Include" />
+                <e p="UpdateSortingLayerNameInspector.cs" t="Include" />
+                <e p="Utils" t="Include">
+                  <e p="DUIColors.cs" t="Include" />
+                  <e p="DUIResources.cs" t="Include" />
+                  <e p="DUIStyles.cs" t="Include" />
+                  <e p="DUIUtils.cs" t="Include" />
+                </e>
+                <e p="Windows" t="Include">
+                  <e p="ControlPanelWindow.cs" t="Include" />
+                  <e p="ControlPanelWindowAbout.cs" t="Include" />
+                  <e p="ControlPanelWindowAnimatorPresets.cs" t="Include" />
+                  <e p="ControlPanelWindowEditorSettings.cs" t="Include" />
+                  <e p="ControlPanelWindowGeneral.cs" t="Include" />
+                  <e p="ControlPanelWindowHelp.cs" t="Include" />
+                  <e p="ControlPanelWindowUIButtons.cs" t="Include" />
+                  <e p="ControlPanelWindowUICanvases.cs" t="Include" />
+                  <e p="ControlPanelWindowUIElements.cs" t="Include" />
+                  <e p="ControlPanelWindowUISounds.cs" t="Include" />
+                  <e p="NotificationWindow.cs" t="Include" />
+                  <e p="UpgradeManagerWindow.cs" t="Include" />
+                </e>
+              </e>
+              <e p="EventSystem" t="Include">
+                <e p="Message.cs" t="Include" />
+              </e>
+              <e p="Helpers" t="Include">
+                <e p="DoozyUI_Data.cs" t="Include" />
+                <e p="FileHelper.cs" t="Include" />
+                <e p="RadialLayout.cs" t="Include" />
+                <e p="RendererExtensions.cs" t="Include" />
+                <e p="SceneLoader.cs" t="Include" />
+                <e p="Singleton.cs" t="Include" />
+                <e p="UpdateSortingLayerName.cs" t="Include" />
+              </e>
+              <e p="OrientationManager" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="OrientationManagerEditor.cs" t="Include" />
+                </e>
+                <e p="OrientationManager.cs" t="Include" />
+              </e>
+              <e p="ScriptableObjects" t="Include">
+                <e p="AnimData.cs" t="Include" />
+                <e p="DUISettings.cs" t="Include" />
+                <e p="LoopData.cs" t="Include" />
+                <e p="NamesDatabase.cs" t="Include" />
+                <e p="PunchData.cs" t="Include" />
+                <e p="UISound.cs" t="Include" />
+              </e>
+              <e p="Soundy" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="SoundyEditor.cs" t="Include" />
+                </e>
+                <e p="Soundy.cs" t="Include" />
+              </e>
+              <e p="TouchManager" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="GestureDetectorEditor.cs" t="Include" />
+                  <e p="TouchManagerEditor.cs" t="Include" />
+                </e>
+                <e p="GestureDetector.cs" t="Include" />
+                <e p="TouchManager.cs" t="Include" />
+              </e>
+              <e p="UI" t="Include">
+                <e p="Enums.cs" t="Include" />
+                <e p="UIAnimationManager.cs" t="Include" />
+                <e p="UIAnimator.cs" t="Include" />
+                <e p="UIAnimatorUtil.cs" t="Include" />
+                <e p="UIButton.cs" t="Include" />
+                <e p="UICanvas.cs" t="Include" />
+                <e p="UIEffect.cs" t="Include" />
+                <e p="UIElement.cs" t="Include" />
+                <e p="UIManager.cs" t="Include" />
+                <e p="UINavigation.cs" t="Include" />
+                <e p="UINotification.cs" t="Include" />
+                <e p="UINotificationManager.cs" t="Include" />
+                <e p="UIToggle.cs" t="Include" />
+                <e p="UITrigger.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Quick" t="Include">
+            <e p="Editor" t="Include">
+              <e p="Classes" t="Include">
+                <e p="QColor.cs" t="Include" />
+                <e p="QColors.cs" t="Include" />
+                <e p="QEditor.cs" t="Include" />
+                <e p="QGeneratedTexture.cs" t="Include" />
+                <e p="QResources.cs" t="Include" />
+                <e p="QStyles.cs" t="Include" />
+                <e p="QTexture.cs" t="Include" />
+                <e p="QUI.cs" t="Include" />
+                <e p="QWindow.cs" t="Include" />
+              </e>
+              <e p="Extensions" t="Include">
+                <e p="GUIStyleExtensions.cs" t="Include" />
+              </e>
+              <e p="Resources" t="Include">
+                <e p="Quick" t="Include">
+                  <e p="Fonts" t="Include">
+                    <e p="Ubuntu" t="Include">
+                      <e p="UFL.txt" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+              <e p="Utils" t="Include">
+                <e p="QAssets.cs" t="Include" />
+                <e p="QDrawing.cs" t="Include" />
+                <e p="QUtils.cs" t="Include" />
+                <e p="QWindowUtils.cs" t="Include" />
+                <e p="ZoomArea.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Engine" t="Include">
+              <e p="Classes" t="Include">
+                <e p="QColor.cs" t="Include" />
+                <e p="QColors.cs" t="Include" />
+                <e p="QResources.cs" t="Include" />
+              </e>
+              <e p="Common" t="Include">
+                <e p="Singleton.cs" t="Include" />
+              </e>
+              <e p="Core" t="Include">
+                <e p="Q.cs" t="Include" />
+              </e>
+              <e p="Extensions" t="Include">
+                <e p="ArrayAndListExtensions.cs" t="Include" />
+                <e p="AudioExtensions.cs" t="Include" />
+                <e p="BoolExtensions.cs" t="Include" />
+                <e p="CameraExtensions.cs" t="Include" />
+                <e p="ColorExtensions.cs" t="Include" />
+                <e p="DateTimeExtensions.cs" t="Include" />
+                <e p="DictionaryExtenstions.cs" t="Include" />
+                <e p="FloatExtensions.cs" t="Include" />
+                <e p="IListExtensions.cs" t="Include" />
+                <e p="RectTransformExtensions.cs" t="Include" />
+                <e p="StringExtensions.cs" t="Include" />
+                <e p="TransformExtensions.cs" t="Include" />
+                <e p="VectorExtensions.cs" t="Include" />
+              </e>
+              <e p="IO" t="Include">
+                <e p="File.cs" t="Include" />
+              </e>
+              <e p="ScriptableObjects" t="Include">
+                <e p="FontAwesomeReferences.cs" t="Include" />
+              </e>
+              <e p="Utils" t="Include">
+                <e p="QAssets.cs" t="Include" />
+                <e p="QEmailValidator.cs" t="Include" />
+                <e p="QEncryption.cs" t="Include" />
+                <e p="QIPValidator.cs" t="Include" />
+                <e p="QReflection.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="RainbowAssets" t="Include">
+            <e p="!Core" t="Include">
+              <e p="Editor" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="Window" t="Include">
+                    <e p="DraggablePopupWindow.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="ReorderableList" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="Element Adder Menu" t="Include">
+                    <e p="ElementAdderMenuBuilder.cs" t="Include" />
+                    <e p="ElementAdderMenuCommandAttribute.cs" t="Include" />
+                    <e p="ElementAdderMeta.cs" t="Include" />
+                    <e p="GenericElementAdderMenu.cs" t="Include" />
+                    <e p="GenericElementAdderMenuBuilder.cs" t="Include" />
+                    <e p="IElementAdder.cs" t="Include" />
+                    <e p="IElementAdderMenu.cs" t="Include" />
+                    <e p="IElementAdderMenuBuilder.cs" t="Include" />
+                    <e p="IElementAdderMenuCommand.cs" t="Include" />
+                  </e>
+                  <e p="GenericListAdaptor.cs" t="Include" />
+                  <e p="Internal" t="Include">
+                    <e p="GUIHelper.cs" t="Include" />
+                    <e p="ReorderableListResources.cs" t="Include" />
+                    <e p="SerializedPropertyUtility.cs" t="Include" />
+                  </e>
+                  <e p="IReorderableListAdaptor.cs" t="Include" />
+                  <e p="IReorderableListDropTarget.cs" t="Include" />
+                  <e p="ReorderableListControl.cs" t="Include" />
+                  <e p="ReorderableListEvents.cs" t="Include" />
+                  <e p="ReorderableListFlags.cs" t="Include" />
+                  <e p="ReorderableListGUI.cs" t="Include" />
+                  <e p="ReorderableListStyles.cs" t="Include" />
+                  <e p="SerializedPropertyAdaptor.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="RainbowFolders" t="Include">
+              <e p="Editor" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="Helpers" t="Include">
+                    <e p="RainbowFoldersEditorUtility.cs" t="Include" />
+                  </e>
+                  <e p="Info" t="Include">
+                    <e p="AssetInfo.cs" t="Include" />
+                  </e>
+                  <e p="Menu" t="Include">
+                    <e p="Colors" t="Include">
+                      <e p="FolderColor.cs" t="Include" />
+                      <e p="FolderColorDrawer.cs" t="Include" />
+                      <e p="FolderColorName.cs" t="Include" />
+                      <e p="FolderColorsStorage.cs" t="Include" />
+                      <e p="FolderColorsStorageEditor.cs" t="Include" />
+                    </e>
+                    <e p="FolderIconPair.cs" t="Include" />
+                    <e p="Platforms" t="Include">
+                      <e p="FolderPlatform.cs" t="Include" />
+                      <e p="FolderPlatformDrawer.cs" t="Include" />
+                      <e p="FolderPlatformName.cs" t="Include" />
+                      <e p="FolderPlatformsStorage.cs" t="Include" />
+                      <e p="FolderPlatformsStorageEditor.cs" t="Include" />
+                    </e>
+                    <e p="RainbowFoldersBackgroundsMenu.cs" t="Include" />
+                    <e p="RainbowFoldersContextMenu.cs" t="Include" />
+                    <e p="RainbowFoldersIconsMenu.cs" t="Include" />
+                    <e p="Tags" t="Include">
+                      <e p="FolderTag.cs" t="Include" />
+                      <e p="FolderTagDrawer.cs" t="Include" />
+                      <e p="FolderTagName.cs" t="Include" />
+                      <e p="FolderTagsStorage.cs" t="Include" />
+                      <e p="FolderTagsStorageEditor.cs" t="Include" />
+                    </e>
+                    <e p="Types" t="Include">
+                      <e p="FolderType.cs" t="Include" />
+                      <e p="FolderTypeDrawer.cs" t="Include" />
+                      <e p="FolderTypeName.cs" t="Include" />
+                      <e p="FolderTypesStorage.cs" t="Include" />
+                      <e p="FolderTypesStorageEditor.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Prefs" t="Include">
+                    <e p="RainbowFoldersPreferences.cs" t="Include" />
+                  </e>
+                  <e p="RainbowFoldersBrowserIcons.cs" t="Include" />
+                  <e p="Settings" t="Include">
+                    <e p="RainbowFolder.cs" t="Include" />
+                    <e p="RainbowFolderDrawer.cs" t="Include" />
+                    <e p="RainbowFoldersSettings.cs" t="Include" />
+                    <e p="RainbowFoldersSettingsEditor.cs" t="Include" />
+                  </e>
+                  <e p="Windows" t="Include">
+                    <e p="RainbowFoldersPopup.cs" t="Include" />
+                    <e p="RainbowFoldersWelcome.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
+          <e p="Sirenix" t="Include">
+            <e p="Assemblies" t="Include">
+              <e p="link.xml" t="Include" />
+              <e p="Sirenix.OdinInspector.Attributes.xml" t="Include" />
+              <e p="Sirenix.OdinInspector.Editor.xml" t="Include" />
+              <e p="Sirenix.Serialization.Config.xml" t="Include" />
+              <e p="Sirenix.Utilities.Editor.xml" t="Include" />
+              <e p="Sirenix.Utilities.xml" t="Include" />
+            </e>
+            <e p="Demos" t="Include">
+              <e p="Attributes Overview" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="AssetListExamples.cs" t="Include" />
+                  <e p="AttributesOnClassesExample.cs" t="Include" />
+                  <e p="BoxGroupExamples.cs" t="Include" />
+                  <e p="ButtonExamples.cs" t="Include" />
+                  <e p="ButtonGroupExamples.cs" t="Include" />
+                  <e p="ButtonWithParametersExamples.cs" t="Include" />
+                  <e p="ColorPaletteExamples.cs" t="Include" />
+                  <e p="CombineGroupAttributeExample1.cs" t="Include" />
+                  <e p="CombineGroupAttributeExample2.cs" t="Include" />
+                  <e p="CombineGroupAttributeExample3.cs" t="Include" />
+                  <e p="CustomContextMenuExamples.cs" t="Include" />
+                  <e p="CustomValueDrawerExamples.cs" t="Include" />
+                  <e p="DebugSerializationExample.cs" t="Include" />
+                  <e p="DefaultDrawerChanges.cs" t="Include" />
+                  <e p="DelegateExamples.cs" t="Include" />
+                  <e p="DictionaryExamples.cs" t="Include" />
+                  <e p="DisableContextMenuExamples.cs" t="Include" />
+                  <e p="DisableInEditorAndPlayModeExamples.cs" t="Include" />
+                  <e p="DisplayAsStringExamples.cs" t="Include" />
+                  <e p="DrawWithUnityExamples.cs" t="Include" />
+                  <e p="EnableAndDisableIfExamples.cs" t="Include" />
+                  <e p="EnumPagingExamples.cs" t="Include" />
+                  <e p="EnumToggleButtonsExamples.cs" t="Include" />
+                  <e p="FilePathExamples.cs" t="Include" />
+                  <e p="FolderPathExamples.cs" t="Include" />
+                  <e p="FoldoutGroupAttributeExamples.cs" t="Include" />
+                  <e p="GUIColorExamples.cs" t="Include" />
+                  <e p="HideInEditorAndPlayModeExamples.cs" t="Include" />
+                  <e p="HideLabelExamples.cs" t="Include" />
+                  <e p="HideReferenceObjectPickerExamples.cs" t="Include" />
+                  <e p="HorizontalGroupAttributeExamples.cs" t="Include" />
+                  <e p="IncorrectUseOfOdinSerializeAttributeExamples1.cs" t="Include" />
+                  <e p="IncorrectUseOfOdinSerializeAttributeExamples2.cs" t="Include" />
+                  <e p="IndentExamples.cs" t="Include" />
+                  <e p="InfoBoxExamples.cs" t="Include" />
+                  <e p="InlineButtonExamples.cs" t="Include" />
+                  <e p="InlineEditorExamples.cs" t="Include" />
+                  <e p="InlinePropertyExamples.cs" t="Include" />
+                  <e p="LabelTextExamples.cs" t="Include" />
+                  <e p="ListExamples.cs" t="Include" />
+                  <e p="MinMaxSliderExamples.cs" t="Include" />
+                  <e p="MinMaxValueValueExamples.cs" t="Include" />
+                  <e p="MultiLinePropertyExamples.cs" t="Include" />
+                  <e p="NoBoilerplate.cs" t="Include" />
+                  <e p="OnInspectorGUIExamples.cs" t="Include" />
+                  <e p="OnValueChangedExamples.cs" t="Include" />
+                  <e p="PrefabRelatedAttributesExamples.cs" t="Include" />
+                  <e p="ProgressBarExamples.cs" t="Include" />
+                  <e p="PropertyOrderExamples.cs" t="Include" />
+                  <e p="PropertyTooltipExamples.cs" t="Include" />
+                  <e p="ReadOnlyExamples.cs" t="Include" />
+                  <e p="RequiredExamples.cs" t="Include" />
+                  <e p="ResponsiveButtonGroupExample.cs" t="Include" />
+                  <e p="SceneAndAssetsOnlyExamples.cs" t="Include" />
+                  <e p="SerializeAnything.cs" t="Include" />
+                  <e p="ShowAndHideIfExamples.cs" t="Include" />
+                  <e p="ShowDrawerChainExamples.cs" t="Include" />
+                  <e p="ShowInInspectorExamples.cs" t="Include" />
+                  <e p="ShowPropertiesInTheInspectorExamples.cs" t="Include" />
+                  <e p="StaticInspectorsExample.cs" t="Include" />
+                  <e p="SuffixLabelExamples.cs" t="Include" />
+                  <e p="TabExamples.cs" t="Include" />
+                  <e p="TableListExamples.cs" t="Include" />
+                  <e p="TableMatrixExamples.cs" t="Include" />
+                  <e p="TitleExamples.cs" t="Include" />
+                  <e p="TitleGroupExamples.cs" t="Include" />
+                  <e p="ToggleExamples.cs" t="Include" />
+                  <e p="ToggleLeftExamples.cs" t="Include" />
+                  <e p="TwoDimensionalArrayExamples.cs" t="Include" />
+                  <e p="TypeFilterExamples.cs" t="Include" />
+                  <e p="UnityPreviewFieldsExamples.cs" t="Include" />
+                  <e p="ValidateInputExamples.cs" t="Include" />
+                  <e p="ValueDropdownExamples.cs" t="Include" />
+                  <e p="VerticalGroupExamples.cs" t="Include" />
+                  <e p="WrapExamples.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Custom Attribute Processors" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="AttributeProcessorForListItemsExample.cs" t="Include" />
+                  <e p="AttributeProcessorPriorityExample.cs" t="Include" />
+                  <e p="Bar.cs" t="Include" />
+                  <e p="BasicAttributeProcessorExample.cs" t="Include" />
+                  <e p="CustomAttributeProcessorLocatorExample.cs" t="Include" />
+                  <e p="CustomizeDictionaryKeyValueExample.cs" t="Include" />
+                  <e p="Foo.cs" t="Include" />
+                  <e p="PutAttributesOnAnyType.cs" t="Include" />
+                  <e p="SelfAndChildrenExample.cs" t="Include" />
+                  <e p="TabGroupByDeclaringType.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Custom Drawers" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="CustomDrawerExample.cs" t="Include" />
+                  <e p="CustomGroupExample.cs" t="Include" />
+                  <e p="GenericDrawerExample.cs" t="Include" />
+                  <e p="GenericMenuExample.cs" t="Include" />
+                  <e p="HealthBarExample.cs" t="Include" />
+                  <e p="InstancedDrawerExample.cs" t="Include" />
+                  <e p="MinesweeperExample.cs" t="Include" />
+                  <e p="PriorityExamples.cs" t="Include" />
+                  <e p="ReflectionExample.cs" t="Include" />
+                  <e p="StringMemberHelperExample.cs" t="Include" />
+                  <e p="ValidationExample.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Sample - RPG Editor" t="Include">
+                <e p="Icons" t="Include">
+                  <e p="icons_by_ravenmore.txt" t="Include" />
+                </e>
+                <e p="Scripts" t="Include">
+                  <e p="Character" t="Include">
+                    <e p="Character.cs" t="Include" />
+                    <e p="CharacterAlignment.cs" t="Include" />
+                    <e p="CharacterEquipment.cs" t="Include" />
+                    <e p="CharacterOverview.cs" t="Include" />
+                    <e p="CharacterStats.cs" t="Include" />
+                  </e>
+                  <e p="Editor" t="Include">
+                    <e p="CharacterTable.cs" t="Include" />
+                    <e p="ItemDrawer.cs" t="Include" />
+                    <e p="ItemSlotCellDrawer.cs" t="Include" />
+                    <e p="RPGEditorWindow.cs" t="Include" />
+                    <e p="ScriptableObjectCreator.cs" t="Include" />
+                  </e>
+                  <e p="Items" t="Include">
+                    <e p="Armor.cs" t="Include" />
+                    <e p="ConsumableItem.cs" t="Include" />
+                    <e p="EquipableItem.cs" t="Include" />
+                    <e p="Item.cs" t="Include" />
+                    <e p="ItemTypes.cs" t="Include" />
+                    <e p="WeaponItem.cs" t="Include" />
+                  </e>
+                  <e p="Misc" t="Include">
+                    <e p="ItemSlot.cs" t="Include" />
+                    <e p="StatList.cs" t="Include" />
+                    <e p="StatType.cs" t="Include" />
+                    <e p="StatValue.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+            <e p="Odin Inspector" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="AssemblyImportSettingsAutomation.cs" t="Include" />
+                  <e p="BuildAOTAutomation.cs" t="Include" />
+                  <e p="EnsureOdinInspectorDefine.cs" t="Include" />
+                  <e p="Vector2IntMinMaxAttributeDrawer.cs" t="Include" />
+                  <e p="VectorIntDrawers.cs" t="Include" />
+                  <e p="VectorIntPropertyResolvers.cs" t="Include" />
+                </e>
+                <e p="VectorIntFormatters.cs" t="Include" />
+              </e>
+            </e>
+            <e p="readme.txt" t="Include" />
+          </e>
+          <e p="UltimateCRT" t="Include">
+            <e p="Demo" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="ImageSwitcher.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Resources" t="Include">
+              <e p="CRTBlur.cg.shader" t="Include" />
+              <e p="CRTFinalPostprocess.cg.shader" t="Include" />
+              <e p="CRTPostprocess.cg.shader" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="BaseCRTEffect.cs" t="Include" />
+              <e p="CRTEffect.cs" t="Include" />
+              <e p="StandaloneCRTEffect.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Examples &amp; Extras" t="Include">
+            <e p="Fonts" t="Include">
+              <e p="Anton OFL.txt" t="Include" />
+              <e p="Bangers - OFL.txt" t="Include" />
+              <e p="LiberationSans - OFL.txt" t="Include" />
+              <e p="Oswald-Bold - OFL.txt" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Benchmark01.cs" t="Include" />
+              <e p="Benchmark01_UGUI.cs" t="Include" />
+              <e p="Benchmark02.cs" t="Include" />
+              <e p="Benchmark03.cs" t="Include" />
+              <e p="Benchmark04.cs" t="Include" />
+              <e p="CameraController.cs" t="Include" />
+              <e p="ChatController.cs" t="Include" />
+              <e p="EnvMapAnimator.cs" t="Include" />
+              <e p="ObjectSpin.cs" t="Include" />
+              <e p="ShaderPropAnimator.cs" t="Include" />
+              <e p="SimpleScript.cs" t="Include" />
+              <e p="SkewTextExample.cs" t="Include" />
+              <e p="TeleType.cs" t="Include" />
+              <e p="TextConsoleSimulator.cs" t="Include" />
+              <e p="TextMeshProFloatingText.cs" t="Include" />
+              <e p="TextMeshSpawner.cs" t="Include" />
+              <e p="TMP_DigitValidator.cs" t="Include" />
+              <e p="TMP_ExampleScript_01.cs" t="Include" />
+              <e p="TMP_FrameRateCounter.cs" t="Include" />
+              <e p="TMP_PhoneNumberValidator.cs" t="Include" />
+              <e p="TMP_TextEventCheck.cs" t="Include" />
+              <e p="TMP_TextEventHandler.cs" t="Include" />
+              <e p="TMP_TextInfoDebugTool.cs" t="Include" />
+              <e p="TMP_TextSelector_A.cs" t="Include" />
+              <e p="TMP_TextSelector_B.cs" t="Include" />
+              <e p="TMP_UiFrameRateCounter.cs" t="Include" />
+              <e p="TMPro_InstructionOverlay.cs" t="Include" />
+              <e p="VertexColorCycler.cs" t="Include" />
+              <e p="VertexJitter.cs" t="Include" />
+              <e p="VertexShakeA.cs" t="Include" />
+              <e p="VertexShakeB.cs" t="Include" />
+              <e p="VertexZoom.cs" t="Include" />
+              <e p="WarpTextExample.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Interno.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
