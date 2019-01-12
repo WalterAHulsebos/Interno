@@ -19,7 +19,7 @@ public class GameManager : PersistentSingleton<GameManager>
 
     #region Loading Level
     [SerializeField]
-    private RectTransform loadScreen;
+    private RectTransform loadScreen, mainMenu, ingameMenu;
     [SerializeField]
     private Image loadBar;
     [SerializeField]
@@ -42,6 +42,10 @@ public class GameManager : PersistentSingleton<GameManager>
     private void OnLevelWasLoaded(int level)
     {
         CombatManager.Clear();
+
+        bool b = SceneManager.GetActiveScene().name.Contains("Level_");
+        mainMenu.gameObject.SetActive(!b);
+        ingameMenu.gameObject.SetActive(b);
     }
 
     #region Load Level
