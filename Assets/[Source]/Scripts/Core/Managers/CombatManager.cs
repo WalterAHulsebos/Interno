@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Combat
 {
-    public class CombatManager
+    public class CombatManager<T> where T : ICombatable
     {
-        private List<ICombatable> combatants;
+        public List<T> Combatants { get; private set; }
         private int activeCombatantIndex = -1;
         private bool returnOnNewRound;
 
@@ -20,14 +20,14 @@ namespace Combat
         public CombatManager(int maxCombatants, bool returnOnNewRound)
         {
             this.returnOnNewRound = returnOnNewRound;
-            combatants = new List<ICombatable>(maxCombatants);
+            Combatants = new List<T>(maxCombatants);
         }
 
         public void Next()
         {
             activeCombatantIndex++;
 
-            if(activeCombatantIndex >= combatants.Count)
+            if(activeCombatantIndex >= Combatants.Count)
             {
                 activeCombatantIndex = 0;
                 Sort();
@@ -39,27 +39,27 @@ namespace Combat
             }
 
             OnNextEvent();
-            combatants[activeCombatantIndex].OnActiveCombatant();
+            Combatants[activeCombatantIndex].OnActiveCombatant();
         }
 
-        private void RemoveNonActiveCombatants(ICombatable combatable)
+        public void Remove(T combatable)
         {
-            int combatantsCount = combatants.Count;
+            int combatantsCount = Combatants.Count;
             for (int i = 0; i < combatantsCount; i++)
             {
-                if (!combatable.Equals(combatants[i]))
+                if (!combatable.Equals(Combatants[i]))
                     continue;
 
                 if (i <= activeCombatantIndex)
                     activeCombatantIndex--;
-                combatants.RemoveAt(i);
+                Combatants.RemoveAt(i);
                 return;
             }
         }
 
-        public void Add(ICombatable combatable)
+        public void Add(T combatable)
         {
-            combatants.Add(combatable);
+            Combatants.Add(combatable);
         }
 
         #region Events
@@ -86,17 +86,18 @@ namespace Combat
 
         public void Sort()
         {
-            combatants.Sort();
+            Combatants.Sort();
         }
 
         public void Clear()
         {
-            combatants.Clear();
+            Combatants.Clear();
         }
     }
 
     public interface ICombatable : IComparable<ICombatable>
     {
-        void OnActiveCombatant();
+        int CombatOrder { get; }
+        void OnActiveCombatant();       
     }
 }

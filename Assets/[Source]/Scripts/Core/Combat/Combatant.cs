@@ -2,19 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Combat;
-using Core.Pathfinding;
-using Sirenix.OdinInspector;
 
-public abstract class Combatant : MonoBehaviour, ICombatable, IMoveable<Node>
+public abstract class Combatant : Filler, ICombatable
 {
-    [InlineEditor]
-    public MoveSet moveSet;
-
-    public Node Node { get; private set; }
-    public bool HorizontalMovement { get; private set; }
-    public bool VerticalMovement { get; private set; }
+    public int CombatOrder { get; protected set; }
+    public int teamID, health;
 
     public abstract int CompareTo(ICombatable other);
     public abstract void OnActiveCombatant();
-    public abstract bool Walkable(Node node);
+
+    protected override void NotifyExistence()
+    {
+        base.NotifyExistence();
+        GameManager.instance.CombatManager.Add(this);
+    }
+
+    protected override void NotifyDestruction()
+    {
+        base.NotifyDestruction();
+        GameManager.instance.CombatManager.Remove(this);
+    }
+
+    protected virtual void EndTurn()
+    {
+        GameManager.instance.CombatManager.Next();
+    }
 }

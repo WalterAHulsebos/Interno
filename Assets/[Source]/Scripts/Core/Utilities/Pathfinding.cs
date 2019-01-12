@@ -53,6 +53,8 @@ namespace Core.Pathfinding
                             convertedPosition = new Vector2Int(current.Position.x + x, current.Position.y + y);
                             child = grid[convertedPosition.x, convertedPosition.y];
 
+                            if (!combatant.Walkable(child) && child.Position != to)
+                                continue;
                             if (closed.Contains(child))
                                 continue;
                             if (open.Contains(child))
@@ -65,7 +67,10 @@ namespace Core.Pathfinding
                         }
                 }
             }
-            
+
+            if(current.Position != to)
+                return;
+
             while(current.Parent != null)
             {
                 path.Add(current);

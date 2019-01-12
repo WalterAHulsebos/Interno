@@ -7,15 +7,16 @@ using Core.Utilities;
 using Combat;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Jext;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
-    public CombatManager CombatManager { get; private set; }
+    public CombatManager<Combatant> CombatManager { get; private set; }
     public Pathfinding Pathfinding { get; private set; }
     public Node[,] Grid { get; private set; }
 
     [SerializeField]
-    private int maxCombatants;
+    private int maxCombatants, maxFiller;
 
     #region Loading Level
     [SerializeField]
@@ -27,21 +28,30 @@ public class GameManager : PersistentSingleton<GameManager>
     private AsyncOperation asyncLoad;
     #endregion
 
+    #region Level Data
+    public List<Filler> filler;
+    #endregion
+
+    private List<Node> nodeCache;
+
     protected override void Awake()
     {
         base.Awake();
-        CombatManager = new CombatManager(maxCombatants, false);
+        CombatManager = new CombatManager<Combatant>(maxCombatants, false);
+        filler = new List<Filler>(maxFiller);
     }
 
     public void SetupLevel(Node[,] grid)
     {
         Grid = grid;
         Pathfinding = new Pathfinding(grid);
+        nodeCache = new List<Node>(grid.GetLength(0) * grid.GetLength(1));
     }
 
     private void OnLevelWasLoaded(int level)
     {
         CombatManager.Clear();
+        filler.Clear();
 
         bool b = SceneManager.GetActiveScene().name.Contains("Level_");
         mainMenu.gameObject.SetActive(!b);
@@ -76,4 +86,22 @@ public class GameManager : PersistentSingleton<GameManager>
         loadScreen.gameObject.SetActive(false);
     }
     #endregion
+
+    // Not the perfect place for this function, but did it for the cache. Might make a seperate script for this
+    
+    public bool CanSee(Vector2Int from, Vector2Int to)
+    {
+        nodeCache.Clear();
+        Grid.GetLine(nodeCache, from, to);
+        nodeCache.RemoveAt(0);
+        return !nodeCache.IsLineInterrupted();
+    }
+
+    public List<Node> GetPath(Combatant combatant, Vector2Int to)
+    {
+        nodeCache.Clear();
+        Pathfinding.Get(combatant, to, nodeCache);
+        nodeCache.RemoveAt(nodeCache.Count - 1);
+        return nodeCache;
+    }
 }
