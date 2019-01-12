@@ -12,7 +12,8 @@ public class Move : SerializedScriptableObject
             [BoxGroup("Chance", ShowLabel = false)]
             [ProgressBar(0, 100, ColorMember = "GetWeightColour")]
         #endif
-        public float weight = 100;
+        [Range(0, 1f)]
+        public float weight = 1;
         
         #if UNITY_EDITOR
             private Color GetWeightColour(float value)

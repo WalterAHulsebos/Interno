@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Heap;
-using Movement;
+using Core.Pathfinding;
 
 public class Node : IHeapable<Node>, INodeable<Node>
 {
@@ -11,9 +11,18 @@ public class Node : IHeapable<Node>, INodeable<Node>
     public Vector2Int Position { get; set; }
     public float G { get; set; }
     public float H { get; set; }
+    public Move Move { get; set; }
+
+    public float Value
+    {
+        get
+        {
+            return G + H + Move.weight;
+        }
+    }
 
     public int CompareTo(Node other)
     {
-        return Mathf.RoundToInt(other.G + other.H - G - H);
+        return Mathf.RoundToInt(Value - other.Value);
     }
 }

@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Combat;
-using Movement;
+using Core.Pathfinding;
+using Sirenix.OdinInspector;
 
 public abstract class Combatant : MonoBehaviour, ICombatable, IMoveable<Node>
 {
-    public Node Position { get; private set; }
+    [InlineEditor]
+    public MoveSet moveSet;
+
+    public Node Node { get; private set; }
     public bool HorizontalMovement { get; private set; }
     public bool VerticalMovement { get; private set; }
 

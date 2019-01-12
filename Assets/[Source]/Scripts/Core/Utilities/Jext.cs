@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Movement;
+using Core.Pathfinding;
 
 namespace Jext
 {
@@ -71,6 +71,17 @@ namespace Jext
                     level[x, y] = new T();
                     level[x, y].Position = new Vector2Int(x, y);
                 }
+        }
+
+        public static Vector2Int ConvertMovePositionToGridPosition(this Move move, Vector2Int movePosition)
+        {
+            Vector2Int center = move.Center();
+            return new Vector2Int(movePosition.x - center.x, move.footPrint.GetLength(1) - movePosition.y - center.y);
+        }
+
+        public static Vector2Int Center(this Move move)
+        {
+            return new Vector2Int(move.footPrint.GetLength(0) / 2, move.footPrint.GetLength(1) / 2);
         }
     }
 }
