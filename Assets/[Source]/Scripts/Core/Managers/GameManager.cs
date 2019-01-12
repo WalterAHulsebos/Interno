@@ -4,6 +4,7 @@ using UnityEngine;
 
 using Core.Pathfinding;
 using Core.Utilities;
+using Core.MenuHolder;
 using Combat;
 
 public class GameManager : PersistentSingleton<GameManager>
@@ -18,7 +19,7 @@ public class GameManager : PersistentSingleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        CombatManager = new CombatManager(maxCombatants, false);       
+        CombatManager = new CombatManager(maxCombatants, false);
     }
 
     public void SetupLevel(Node[,] grid)
