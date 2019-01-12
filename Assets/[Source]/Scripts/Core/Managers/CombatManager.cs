@@ -88,6 +88,11 @@ namespace Combat
         {
             combatants.Sort();
         }
+
+        public void Clear()
+        {
+            combatants.Clear();
+        }
     }
 
     public interface ICombatable : IComparable<ICombatable>
