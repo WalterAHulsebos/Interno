@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Core.Pathfinding;
+using Core.Filler;
 
 namespace Core.Jext
 {
@@ -146,7 +147,7 @@ namespace Core.Jext
         public static bool IsLineInterrupted<T>(this List<T> line) where T : INodeable<T>
         {
             int lineCount = line.Count;
-            foreach(Filler filler in GameManager.instance.filler)
+            foreach(Filler.Filler filler in GameManager.instance.filler)
                 for (int i = 0; i < lineCount; i++)
                     if (filler.Node.Position == line[i].Position)
                         return true;

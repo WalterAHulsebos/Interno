@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Combat
+namespace Core.Combat
 {
     public class CombatManager<T> where T : ICombatable
     {

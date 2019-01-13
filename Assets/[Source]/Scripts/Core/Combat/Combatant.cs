@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Combat;
+using Core.Combat;
+using Core.Filler;
 
 public abstract class Combatant : Filler, ICombatable, IDamageable
 {

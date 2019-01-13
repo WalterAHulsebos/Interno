@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Combat;
+using Core.Combat;
 using Sirenix.OdinInspector;
 using Core.Jext;
 
-public class Monster : Combatant {
-
+public class Monster : Combatant
+{
     [SerializeField, InlineEditor]
     protected ViewSet viewSet;
     [SerializeField]

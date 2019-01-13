@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
+
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 using Core.Pathfinding;
 using Core.Utilities;
-using Combat;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using Core.Combat;
 using Core.Jext;
-using System;
+using Core.Filler;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
