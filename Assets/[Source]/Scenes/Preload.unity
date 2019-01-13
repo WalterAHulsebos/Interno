@@ -308,6 +308,14 @@ MonoBehaviour:
       opens: []
       closes: []
       closesSelf: 1
+    - button: {fileID: 1440304451}
+      opens: []
+      closes: []
+      closesSelf: 1
+    - button: {fileID: 501740209}
+      opens: []
+      closes: []
+      closesSelf: 1
 --- !u!114 &637188450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +446,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Some Option
+  m_Text: Restart Level
 --- !u!222 &1094720446
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -545,7 +553,7 @@ GameObject:
   - component: {fileID: 1440304452}
   - component: {fileID: 1440304451}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Restart Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,7 +618,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1440304452}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1800499103}
+        m_MethodName: ReloadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1440304452
@@ -1140,6 +1159,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8862621561152116857, guid: 215a12a9f22ba7f4fb161e0184ee13c9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862621561569984635, guid: 215a12a9f22ba7f4fb161e0184ee13c9,
+        type: 3}
+      propertyPath: mainMenu
+      value: 
+      objectReference: {fileID: 1332336915}
+    - target: {fileID: 8862621561569984635, guid: 215a12a9f22ba7f4fb161e0184ee13c9,
+        type: 3}
+      propertyPath: ingameMenu
+      value: 
+      objectReference: {fileID: 637188448}
     - target: {fileID: 4341041345991174321, guid: 215a12a9f22ba7f4fb161e0184ee13c9,
         type: 3}
       propertyPath: m_Name
@@ -1198,21 +1232,6 @@ PrefabInstance:
     - target: {fileID: 4341041345991174323, guid: 215a12a9f22ba7f4fb161e0184ee13c9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8862621561569984635, guid: 215a12a9f22ba7f4fb161e0184ee13c9,
-        type: 3}
-      propertyPath: mainMenu
-      value: 
-      objectReference: {fileID: 1332336915}
-    - target: {fileID: 8862621561569984635, guid: 215a12a9f22ba7f4fb161e0184ee13c9,
-        type: 3}
-      propertyPath: ingameMenu
-      value: 
-      objectReference: {fileID: 637188448}
-    - target: {fileID: 8862621561152116857, guid: 215a12a9f22ba7f4fb161e0184ee13c9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8862621561152116805, guid: 215a12a9f22ba7f4fb161e0184ee13c9,
