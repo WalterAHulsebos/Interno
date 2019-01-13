@@ -12,10 +12,14 @@ using System;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
+    // This is being used to determine turn order. Combatants will automatically be added and removed from this object.
     public CombatManager<Combatant> CombatManager { get; private set; }
+    // This is being used to get paths between positions
     public Pathfinding Pathfinding { get; private set; }
+    // This is the current level
     public Node[,] Grid { get; private set; }
 
+    // This is used to determine cache size
     [SerializeField]
     private int maxCombatants = 0, maxFiller = 0;
 
@@ -30,6 +34,7 @@ public class GameManager : PersistentSingleton<GameManager>
     #endregion
 
     #region Level Data
+    // This is all the filler in the current level. Filler will be automatically added and removed.
     [NonSerialized]
     public List<Filler> filler;
     #endregion
@@ -43,6 +48,10 @@ public class GameManager : PersistentSingleton<GameManager>
         filler = new List<Filler>(maxFiller);
     }
 
+    /// <summary>
+    /// Set level data, initialize pathfinding and node cache.
+    /// </summary>
+    /// <param name="grid"></param>
     public void SetupLevel(Node[,] grid)
     {
         Grid = grid;
@@ -52,9 +61,11 @@ public class GameManager : PersistentSingleton<GameManager>
 
     private void OnLevelWasLoaded(int level)
     {
+        // Reset objects
         CombatManager.Clear();
         filler.Clear();
 
+        // Update UI
         bool b = SceneManager.GetActiveScene().name.Contains("Level_");
         mainMenu.gameObject.SetActive(!b);
         ingameMenu.gameObject.SetActive(b);
@@ -87,6 +98,9 @@ public class GameManager : PersistentSingleton<GameManager>
         startButton.gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// Called from a button after a level is loaded
+    /// </summary>
     public void AllowSceneActivation()
     {
         asyncLoad.allowSceneActivation = true;
@@ -96,6 +110,12 @@ public class GameManager : PersistentSingleton<GameManager>
 
     // Not the perfect place for this function, but did it for the cache. Might make a seperate script for this
     
+    /// <summary>
+    /// Used for objects to check if an object can see amother object
+    /// </summary>
+    /// <param name="from"></param>
+    /// <param name="to"></param>
+    /// <returns></returns>
     public bool CanSee(Vector2Int from, Vector2Int to)
     {
         nodeCache.Clear();
@@ -104,6 +124,12 @@ public class GameManager : PersistentSingleton<GameManager>
         return !nodeCache.IsLineInterrupted();
     }
 
+    /// <summary>
+    /// Use A* to get a path to target destination
+    /// </summary>
+    /// <param name="combatant"></param>
+    /// <param name="to"></param>
+    /// <returns></returns>
     public List<Node> GetPath(Combatant combatant, Vector2Int to)
     {
         nodeCache.Clear();
