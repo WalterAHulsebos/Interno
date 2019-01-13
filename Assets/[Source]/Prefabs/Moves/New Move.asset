@@ -1911,4 +1911,4 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  gridSize: {x: 0, y: 0}
+  weight: 100
