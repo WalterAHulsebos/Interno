@@ -107,7 +107,7 @@ public class GameManager : PersistentSingleton<GameManager>
     public List<Node> GetPath(Combatant combatant, Vector2Int to)
     {
         nodeCache.Clear();
-        Pathfinding.Get(combatant, to, nodeCache);
+        Pathfinding.GetPath(combatant, to, nodeCache);
         nodeCache.RemoveAt(nodeCache.Count - 1);
         return nodeCache;
     }

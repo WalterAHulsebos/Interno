@@ -6,8 +6,15 @@ using Sirenix.OdinInspector;
 
 public class Filler : MonoBehaviour, IMoveable<Node>
 {
-    [InlineEditor]
-    public MoveSet moveSet;
+    [SerializeField, InlineEditor]
+    private MoveSet moveSet;
+    public MoveSet MoveSet
+    {
+        get
+        {
+            return MoveSet;
+        }
+    }
     public bool walkable;
 
     public Node Node { get; private set; }
