@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Heap;
-using Jext;
+using Core.Jext;
 
 namespace Core.Pathfinding
 {

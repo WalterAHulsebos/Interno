@@ -7,7 +7,7 @@ using Core.Utilities;
 using Combat;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Jext;
+using Core.Jext;
 using System;
 
 public class GameManager : PersistentSingleton<GameManager>

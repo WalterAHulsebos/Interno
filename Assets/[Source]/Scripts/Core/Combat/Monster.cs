@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Combat;
 using Sirenix.OdinInspector;
-using Jext;
+using Core.Jext;
 
 public class Monster : Combatant {
 
-    [InlineEditor]
+    [SerializeField, InlineEditor]
     protected ViewSet viewSet;
     [SerializeField]
     protected AttackSet attackSet;

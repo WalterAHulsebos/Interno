@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamagable
+public interface IDamageable
 {
     List<DamageTypes> Immunities { get; }
     void OnDamageReceived(int damage, DamageTypes damageType);

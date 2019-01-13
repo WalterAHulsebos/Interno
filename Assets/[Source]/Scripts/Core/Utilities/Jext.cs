@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core.Pathfinding;
 
-namespace Jext
+namespace Core.Jext
 {
     public static class Jext
     {

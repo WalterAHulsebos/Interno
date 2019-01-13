@@ -17,9 +17,9 @@ public class Filler : MonoBehaviour, IMoveable<Node>
     }
     public bool walkable;
 
-    public Node Node { get; private set; }
-    public bool HorizontalMovement { get; private set; }
-    public bool VerticalMovement { get; private set; }
+    public Node Node { get; protected set; }
+    public bool HorizontalMovement { get; protected set; }
+    public bool VerticalMovement { get; protected set; }
 
     protected virtual void Awake()
     {

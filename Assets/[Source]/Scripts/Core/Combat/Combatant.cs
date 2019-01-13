@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Combat;
 
-public abstract class Combatant : Filler, ICombatable, IDamagable
+public abstract class Combatant : Filler, ICombatable, IDamageable
 {
     public int CombatOrder { get; protected set; }
 
     public List<DamageTypes> Immunities { get; set; } = new List<DamageTypes>();
 
     public int teamID, health;
-    private int currentHealth;
+    protected int currentHealth;
 
     public abstract int CompareTo(ICombatable other);
     public abstract void OnActiveCombatant();
