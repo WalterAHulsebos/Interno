@@ -8,6 +8,7 @@ public class Filler : MonoBehaviour, IMoveable<Node>
 {
     [InlineEditor]
     public MoveSet moveSet;
+    public bool walkable;
 
     public Node Node { get; private set; }
     public bool HorizontalMovement { get; private set; }
@@ -20,7 +21,11 @@ public class Filler : MonoBehaviour, IMoveable<Node>
 
     public virtual bool Walkable(Node node)
     {
-        return false;
+        List<Combatant> combatants = GameManager.instance.CombatManager.Combatants;
+        foreach (Combatant combatant in combatants)
+            if (combatant.Node == node)
+                return false;
+        return true;
     }
 
     protected virtual void NotifyExistence()

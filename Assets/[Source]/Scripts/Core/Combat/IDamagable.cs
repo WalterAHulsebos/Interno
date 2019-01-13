@@ -4,5 +4,8 @@ using UnityEngine;
 
 public interface IDamagable
 {
-    void OnDamageReceived(int damage);
+    List<DamageTypes> Immunities { get; }
+    void OnDamageReceived(int damage, DamageTypes damageType);
 }
+
+public enum DamageTypes {Normal, Ball, Beam }

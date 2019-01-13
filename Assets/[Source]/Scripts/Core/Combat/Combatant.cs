@@ -6,6 +6,9 @@ using Combat;
 public abstract class Combatant : Filler, ICombatable, IDamagable
 {
     public int CombatOrder { get; protected set; }
+
+    public List<DamageTypes> Immunities { get; set; } = new List<DamageTypes>();
+
     public int teamID, health;
     private int currentHealth;
 
@@ -35,8 +38,10 @@ public abstract class Combatant : Filler, ICombatable, IDamagable
         GameManager.instance.CombatManager.Next();
     }
 
-    public void OnDamageReceived(int damage)
+    public void OnDamageReceived(int damage, DamageTypes damageType)
     {
+        if (Immunities.Contains(damageType))
+            return;
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, health);
 
         if (currentHealth > 0)

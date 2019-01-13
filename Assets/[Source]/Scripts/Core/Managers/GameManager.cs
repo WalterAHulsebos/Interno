@@ -17,15 +17,15 @@ public class GameManager : PersistentSingleton<GameManager>
     public Node[,] Grid { get; private set; }
 
     [SerializeField]
-    private int maxCombatants, maxFiller;
+    private int maxCombatants = 0, maxFiller = 0;
 
     #region Loading Level
     [SerializeField]
-    private RectTransform loadScreen, mainMenu, ingameMenu;
+    private RectTransform loadScreen = null, mainMenu = null, ingameMenu = null;
     [SerializeField]
-    private Image loadBar;
+    private Image loadBar = null;
     [SerializeField]
-    private Button startButton;
+    private Button startButton = null;
     private AsyncOperation asyncLoad;
     #endregion
 
