@@ -30,6 +30,7 @@ namespace Core.Pathfinding
             open.Clear();
             closed.Clear();
 
+            fromNode.Cost = 0;
             fromNode.Parent = null;
             open.Add(fromNode);
 
@@ -58,11 +59,13 @@ namespace Core.Pathfinding
                             if (closed.Contains(child))
                                 continue;
                             if (open.Contains(child))
-                                continue;                         
+                                if (child.Cost <= current.Value)
+                                    continue;    
                             if (grid.IsOutOfBounds(convertedPosition.x, convertedPosition.y))
                                 continue;
                             
                             child.Parent = current;
+                            child.Cost = current.Value;
                             open.Add(child);
                         }
                 }
@@ -97,5 +100,6 @@ namespace Core.Pathfinding
 
         float G { get; set; }
         float H { get; set; }
+        float Cost { get; set; }
     }
 }

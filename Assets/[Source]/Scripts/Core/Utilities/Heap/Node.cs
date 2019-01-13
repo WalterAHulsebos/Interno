@@ -11,13 +11,14 @@ public class Node : IHeapable<Node>, INodeable<Node>
     public Vector2Int Position { get; set; }
     public float G { get; set; }
     public float H { get; set; }
+    public float Cost { get; set; }
     public Move Move { get; set; }
 
     public float Value
     {
         get
         {
-            return G + H + Move.weight;
+            return G + H + Cost + Move.weight;
         }
     }
 
