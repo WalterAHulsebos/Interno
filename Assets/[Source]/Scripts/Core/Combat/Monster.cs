@@ -37,6 +37,7 @@ public class Monster : Combatant {
         foreach(T t in set)
         {
             convertedPosition = t.ConvertGridToMovePosition(other.Node.Position, Node.Position);
+
             if (t.footPrint[convertedPosition.x, convertedPosition.y])
             {
                 if (!t.directConnectionRequired)

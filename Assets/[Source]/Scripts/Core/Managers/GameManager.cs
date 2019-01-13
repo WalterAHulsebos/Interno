@@ -121,6 +121,7 @@ public class GameManager : PersistentSingleton<GameManager>
         nodeCache.Clear();
         Grid.GetLine(nodeCache, from, to);
         nodeCache.RemoveAt(0);
+        nodeCache.RemoveAt(nodeCache.Count - 1);
         return !nodeCache.IsLineInterrupted();
     }
 
