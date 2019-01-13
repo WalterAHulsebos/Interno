@@ -92,6 +92,7 @@ namespace Combat
         public void Clear()
         {
             Combatants.Clear();
+            activeCombatantIndex = -1;
         }
     }
 

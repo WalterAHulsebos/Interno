@@ -8,6 +8,7 @@ using Combat;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Jext;
+using System;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
@@ -29,6 +30,7 @@ public class GameManager : PersistentSingleton<GameManager>
     #endregion
 
     #region Level Data
+    [NonSerialized]
     public List<Filler> filler;
     #endregion
 
@@ -62,6 +64,11 @@ public class GameManager : PersistentSingleton<GameManager>
     public void LoadLevel(int index)
     {
         StartCoroutine(LoadLevelAsync(index));
+    }
+
+    public void ReloadLevel()
+    {
+        LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
     private IEnumerator LoadLevelAsync(int index)
