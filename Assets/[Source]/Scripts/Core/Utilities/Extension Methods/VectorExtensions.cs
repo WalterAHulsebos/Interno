@@ -31,8 +31,6 @@ public static class VectorExtensions
 		v.z = Mathf.Floor(v.z);
 	}
 
-	//
-
 	public static Vector3 RoundedUp(this Vector3 t)
 	{
 		Vector3 v = new Vector3();
