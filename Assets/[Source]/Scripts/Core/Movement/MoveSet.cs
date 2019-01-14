@@ -37,14 +37,8 @@ public class MoveSet : SerializedScriptableObject
     private void DrawRefreshButton()
     {
         if (SirenixEditorGUI.ToolbarButton(EditorIcons.Refresh))
-        {
             foreach (Move move in moves)
-            {
-                //TODO: Call the appropriate function in move.
-                
-                Debug.Log(move.name);
-            }
-        }
+                move.ConvertGridToList();
     }
     #endif
 }
