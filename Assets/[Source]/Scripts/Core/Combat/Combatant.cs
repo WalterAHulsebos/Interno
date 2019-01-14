@@ -39,7 +39,7 @@ public abstract class Combatant : Filler, ICombatable, IDamageable
         GameManager.instance.CombatManager.Next();
     }
 
-    public void OnDamageReceived(int damage, DamageTypes damageType)
+    public virtual void OnDamageReceived(int damage, DamageTypes damageType)
     {
         if (Immunities.Contains(damageType))
             return;

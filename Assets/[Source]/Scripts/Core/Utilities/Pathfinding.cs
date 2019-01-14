@@ -126,7 +126,7 @@ namespace Core.Pathfinding
     }
 
     /// <summary>
-    /// This is being used for the ground nodes. Position needs to be set.
+    /// This is being used for the ground nodes.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public interface INodeable<T>
