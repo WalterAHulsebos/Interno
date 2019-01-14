@@ -8,8 +8,6 @@ public class SingletonMaterial : MonoBehaviour
     private MaterialPropertyBlock propBlock;
     private Coroutine lerpColorTo;
 
-    public AnimationCurve curve;
-
     private void Awake()
     {
         propBlock = new MaterialPropertyBlock();
