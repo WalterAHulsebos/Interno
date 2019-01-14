@@ -136,8 +136,7 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         base.Awake();
         CombatManager = new CombatManager<Combatant>(maxCombatants, false);
-        filler = new List<Filler>(maxFiller);
-    }
+        filler = new List<Filler>(maxFiller);    }
 
     /// <summary>
     /// Set level data, initialize pathfinding and node cache.
