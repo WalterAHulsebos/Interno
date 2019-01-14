@@ -65,41 +65,35 @@ namespace Core.Pathfinding
                 {
                     gridSize = new Vector2Int(move.footPrint.GetLength(0), move.footPrint.GetLength(1));
                     center = move.Center();
-                    
-                    // Check moveset for possible moves
-                    for (int x = 0; x < gridSize.x; x++)
-                        for (int y = 0; y < gridSize.y; y++)
-                        {
-                            // If this is not a valid move
-                            if (!move.footPrint[x, y])
-                                continue;
 
-                            convertedPosition = new Vector2Int(current.Position.x + x - center.x, current.Position.y + y - center.y);
+                    foreach(Vector2Int vec in move.movePositions)
+                    {
+                        convertedPosition = new Vector2Int(current.Position.x + vec.x - center.x, current.Position.y + vec.y - center.y);
 
-                            if (grid.IsOutOfBounds(convertedPosition.x, convertedPosition.y))
-                                continue;
+                        if (grid.IsOutOfBounds(convertedPosition.x, convertedPosition.y))
+                            continue;
 
-                            child = grid[convertedPosition.x, convertedPosition.y];
+                        child = grid[convertedPosition.x, convertedPosition.y];
 
-                            // If this is not walkable in grid and this is not the goal
-                            if (!moveable.Walkable(child) && child.Position != to)
-                                continue;
+                        // If this is not walkable in grid and this is not the goal
+                        if (!moveable.Walkable(child) && child.Position != to)
+                            continue;
 
-                            // If this has been investigated already
-                            if (closed.Contains(child))
-                                continue;
+                        // If this has been investigated already
+                        if (closed.Contains(child))
+                            continue;
 
-                            // If this is being investigated but the one being investigated is better
-                            if (open.Contains(child))
-                                if (child.Cost <= current.Value)
-                                    continue;    
+                        // If this is being investigated but the one being investigated is better
+                        if (open.Contains(child))
+                            if (child.Cost <= current.Value)
+                                continue;    
 
-                            // Add child to open with correct information
-                            child.Parent = current;
-                            child.Cost = current.Value;
-                            child.Move = move;
-                            open.Add(child);
-                        }
+                        // Add child to open with correct information
+                        child.Parent = current;
+                        child.Cost = current.Value;
+                        child.Move = move;
+                        open.Add(child);
+                    }
                 }
             }
 
