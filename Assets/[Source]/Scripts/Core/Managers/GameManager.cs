@@ -295,16 +295,18 @@ public class GameManager : PersistentSingleton<GameManager>
 
             Vector2Int gridIndex = TileIndexOnNavGrid(cellBounds, position); 
             
-            nodes[gridIndex.x, gridIndex.y] = new Node(){Walkable = tilemap.HasTile(position)}; 
+            nodes[gridIndex.x, gridIndex.y] = new Node(){Walkable = tilemap.HasTile(position)};
+
+            Vector3 adjustedWorldPos = worldPos + new Vector3(0, .25f, 0);
             
             if ((displayGizmos) && tilemap.HasTile(position))
             {                
                 //Debug.Log(string.Format("Tile: {0} - Position: {1}", tilemap.GetTile(position).name, position));
-                DebugExtension.DebugArrow(worldPos, Vector3.back, Color.blue, 100f);
+                DebugExtension.DebugArrow(adjustedWorldPos, Vector3.back, Color.blue, 100f);
             }
             else
             {
-                DebugExtension.DebugArrow(worldPos, Vector3.back, Color.red, 100f);
+                DebugExtension.DebugArrow(adjustedWorldPos, Vector3.back, Color.red, 100f);
             }
         }
 
@@ -327,8 +329,6 @@ public class GameManager : PersistentSingleton<GameManager>
             if (sortingLayerName == "Default")
             {
                 return TileIndexOnNavGrid(tileMapComponent.Tilemap.cellBounds, tilePosition);
-                
-                break; //TODO: Remove?
             }
         }
 
