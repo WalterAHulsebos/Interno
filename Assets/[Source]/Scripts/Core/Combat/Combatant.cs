@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Core.Combat;
-using Core.Filler;
+using Core;
 
 public abstract class Combatant : Filler, ICombatable, IDamageable
 {

@@ -32,13 +32,15 @@ namespace Core.Combat
                 activeCombatantIndex = 0;
                 Sort();
 
-                OnNewRoundEvent();
+                if(OnNewRoundEvent != null)
+                    OnNewRoundEvent();
 
                 if (returnOnNewRound)
                     return;
             }
 
-            OnNextEvent();
+            if(OnNextEvent != null)
+                OnNextEvent();
             Combatants[activeCombatantIndex].OnActiveCombatant();
         }
 

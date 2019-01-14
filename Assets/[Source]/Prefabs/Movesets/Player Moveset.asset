@@ -23,6 +23,3 @@ MonoBehaviour:
     SerializationNodes: []
   moves:
   - {fileID: 11400000, guid: b4c6be5b29bccf7488ba9ceebf9e1b17, type: 2}
-  - {fileID: 11400000, guid: 45f8f1c7696dbd44c801ca7f816aac83, type: 2}
-  - {fileID: 11400000, guid: 98371622feebd26438a615ad68c7aa10, type: 2}
-  - {fileID: 11400000, guid: aa0008eba9e5c8a44b0e2c80754558d2, type: 2}

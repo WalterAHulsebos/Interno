@@ -968,7 +968,7 @@ MonoBehaviour:
       Data: true
     - Name: 
       Entry: 5
-      Data: true
+      Data: false
     - Name: 
       Entry: 5
       Data: true
@@ -1911,4 +1911,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  gridSize: {x: 0, y: 0}
+  weight: 1
+  directConnectionRequired: 0

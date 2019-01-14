@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Core.Pathfinding;
-using Core.Filler;
+using Core;
 
 namespace Core.Jext
 {
@@ -110,7 +110,7 @@ namespace Core.Jext
             return point.x >= pos.x && point.x <= pos.x + size.x && point.y >= pos.y && point.y <= pos.y + size.y;
         }
 
-        public static void Initialize<T>(this T[,] level) where T : INodeable<T>, new()
+        public static void Init<T>(this T[,] level) where T : INodeable<T>, new()
         {
             int xLength = level.GetLength(0), yLength = level.GetLength(1);
 
@@ -147,7 +147,7 @@ namespace Core.Jext
         public static bool IsLineInterrupted<T>(this List<T> line) where T : INodeable<T>
         {
             int lineCount = line.Count;
-            foreach(Filler.Filler filler in GameManager.instance.filler)
+            foreach(Filler filler in GameManager.instance.filler)
                 for (int i = 0; i < lineCount; i++)
                     if (filler.Node.Position == line[i].Position)
                         return true;

@@ -13,12 +13,20 @@ public class Node : IHeapable<Node>, INodeable<Node>
     public float H { get; set; }
     public float Cost { get; set; }
     public Move Move { get; set; }
+    public bool Walkable { get; set; }
 
     public float Value
     {
         get
         {
-            return G + H + Cost + Move.weight;
+            try
+            {
+                return G + H + Cost + Move.weight;
+            }
+            catch
+            {
+                return G + H + Cost;
+            }
         }
     }
 

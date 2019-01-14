@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: debf04439f676124cba81d2e445ef88d, type: 3}
+  m_Name: Player WalkableTiles
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  walkableTiles:
+  - {fileID: 11400000, guid: bcc7fb5548013c34095192c4b82fe46a, type: 2}
+  - {fileID: 11400000, guid: 85bfbc6c6488b6f4db211dede277768f, type: 2}
+  - {fileID: 11400000, guid: fde755ffc109b984084b2d999ccfd11e, type: 2}
+  - {fileID: 11400000, guid: 8b96c663d614fbb449cf8936a213eca8, type: 2}
+  - {fileID: 11400000, guid: 9da5b8075c7fc424cbc04f19fa05268b, type: 2}

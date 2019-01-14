@@ -9,7 +9,7 @@ public class Move : SerializedScriptableObject
         //[BoxGroup("GridSize", ShowLabel = false)]
         //public Vector2Int gridSize = new Vector2Int(20, 20);
         #if UNITY_EDITOR
-            [BoxGroup("Chance", ShowLabel = false)]
+            [BoxGroup("Weight", ShowLabel = false)]
             [ProgressBar(0, 100, ColorMember = "GetWeightColour")]
         #endif
         [Range(0, 1f)]
@@ -29,7 +29,109 @@ public class Move : SerializedScriptableObject
             [TableMatrix(DrawElementMethod = "DrawColouredCell", SquareCells = true, HideRowIndices = false,
             HideColumnIndices = false, ResizableColumns = false)]
         #endif
-        public bool[,] footPrint = new bool[25, 25];
+        public bool[,] footPrint = new bool[25, 25]
+        {
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, true, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, true, false, true, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, true, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            },
+            {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false,
+            }
+        }; //default 
     
         #if UNITY_EDITOR
             private static bool DrawColouredCell(Rect rect, bool toggled)

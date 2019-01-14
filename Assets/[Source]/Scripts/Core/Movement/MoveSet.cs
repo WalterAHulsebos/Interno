@@ -16,8 +16,9 @@ public class MoveSet : SerializedScriptableObject
     #if UNITY_EDITOR
     [Required]
     [InlineEditor]
+    //[HideLabel]
     [ListDrawerSettings(Expanded = true, ShowItemCount = false, CustomAddFunction = "AddMove")]
-#endif
+    #endif
     public Move[] moves;
     
     private Move AddMove()

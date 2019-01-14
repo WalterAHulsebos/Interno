@@ -10,31 +10,172 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="[Source]" t="Include">
+          <e p="Art" t="Include">
+            <e p="ThirdParty" t="Include">
+              <e p="over80characterswithanimations!" t="Include">
+                <e p="Assets" t="Include">
+                  <e p="READ_ME.txt" t="Include" />
+                  <e p="readme_update.txt" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="Scripts" t="Include">
             <e p="Core" t="Include">
               <e p="Combat" t="Include">
                 <e p="Combatant.cs" t="Include" />
+                <e p="IDamagable.cs" t="Include" />
                 <e p="Monster.cs" t="Include" />
               </e>
+              <e p="Filler.cs" t="Include" />
               <e p="Level Generation" t="Include">
-                <e p="Filler.cs" t="Include" />
                 <e p="Interactable.cs" t="Include" />
+                <e p="Tilemap" t="Include">
+                  <e p="Brushes" t="Include">
+                    <e p="Coordinate Brush" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="Editor" t="Include">
+                          <e p="CoordinateBrush.cs" t="Include" />
+                        </e>
+                      </e>
+                    </e>
+                    <e p="GameObject Brush" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="Editor" t="Include">
+                          <e p="GameObjectBrush.cs" t="Include" />
+                        </e>
+                      </e>
+                    </e>
+                    <e p="Group Brush" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="Editor" t="Include">
+                          <e p="GroupBrush.cs" t="Include" />
+                        </e>
+                      </e>
+                    </e>
+                    <e p="Line Brush" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="Editor" t="Include">
+                          <e p="LineBrush.cs" t="Include" />
+                        </e>
+                      </e>
+                    </e>
+                    <e p="Prefab Brush" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="Editor" t="Include">
+                          <e p="PrefabBrush.cs" t="Include" />
+                        </e>
+                      </e>
+                    </e>
+                    <e p="Random Brush" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="Editor" t="Include">
+                          <e p="RandomBrush.cs" t="Include" />
+                        </e>
+                      </e>
+                    </e>
+                    <e p="Tint Brush" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="Editor" t="Include">
+                          <e p="TintBrush.cs" t="Include" />
+                        </e>
+                      </e>
+                    </e>
+                    <e p="Tint Brush Smooth" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="Editor" t="Include">
+                          <e p="TintBrushSmooth.cs" t="Include" />
+                        </e>
+                        <e p="TintTextureGenerator.cs" t="Include" />
+                      </e>
+                      <e p="Shaders" t="Include">
+                        <e p="TintedTilemap.shader" t="Include" />
+                      </e>
+                    </e>
+                  </e>
+                  <e p="GridInformation" t="Include">
+                    <e p="Scripts" t="Include">
+                      <e p="GridInformation.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Tiles" t="Include">
+                    <e p="Animated Tile" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="AnimatedTile.cs" t="Include" />
+                      </e>
+                    </e>
+                    <e p="Hexagonal Rule Tile" t="Include">
+                      <e p="Editor" t="Include">
+                        <e p="HexagonalRuleTileEditor.cs" t="Include" />
+                      </e>
+                      <e p="HexagonalRuleTile.cs" t="Include" />
+                    </e>
+                    <e p="Isometric Rule Tile" t="Include">
+                      <e p="Editor" t="Include">
+                        <e p="IsometricRuleTileEditor.cs" t="Include" />
+                      </e>
+                      <e p="IsometricRuleTile.cs" t="Include" />
+                    </e>
+                    <e p="Pipeline Tile" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="PipelineTile.cs" t="Include" />
+                      </e>
+                    </e>
+                    <e p="Random Tile" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="RandomTile.cs" t="Include" />
+                      </e>
+                    </e>
+                    <e p="Rule Override Tile" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="Editor" t="Include">
+                          <e p="RuleOverrideTileEditor.cs" t="Include" />
+                        </e>
+                        <e p="RuleOverrideTile.cs" t="Include" />
+                      </e>
+                    </e>
+                    <e p="Rule Tile" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="Editor" t="Include">
+                          <e p="CustomRuleTileMenu.cs" t="Include" />
+                          <e p="RuleTileEditor.cs" t="Include" />
+                        </e>
+                        <e p="RuleTile.cs" t="Include" />
+                      </e>
+                      <e p="ScriptTemplates" t="Include">
+                        <e p="NewCustomRuleTile.cs.txt" t="Include" />
+                      </e>
+                    </e>
+                    <e p="Terrain Tile" t="Include">
+                      <e p="Scripts" t="Include">
+                        <e p="TerrainTile.cs" t="Include" />
+                      </e>
+                    </e>
+                    <e p="Weighted Random Tile" t="Include">
+                      <e p="WeightedRandomTile.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
               </e>
               <e p="Managers" t="Include">
                 <e p="CombatManager.cs" t="Include" />
                 <e p="GameManager.cs" t="Include" />
                 <e p="MovementManager.cs" t="Include" />
-                <e p="Plotter.cs" t="Include" />
+                <e p="SelectionManager.cs" t="Include" />
+                <e p="XMLManager.cs" t="Include" />
               </e>
               <e p="Movement" t="Include">
                 <e p="Move.cs" t="Include" />
                 <e p="MoveSet.cs" t="Include" />
-                <e p="PlayerMovement.cs" t="Include" />
+                <e p="Player.cs" t="Include" />
+                <e p="WalkableTiles.cs" t="Include" />
               </e>
               <e p="Settings" t="Include">
                 <e p="GameSettings.cs" t="Include" />
               </e>
               <e p="Utilities" t="Include">
+                <e p="Attack.cs" t="Include" />
+                <e p="AttackSet.cs" t="Include" />
                 <e p="Extension Methods" t="Include">
                   <e p="DebugExtension.cs" t="Include" />
                   <e p="DebugExtensionMethods.cs" t="Include" />
@@ -46,7 +187,9 @@
                   <e p="Node.cs" t="Include" />
                 </e>
                 <e p="Jext.cs" t="Include" />
+                <e p="MenuHolder.cs" t="Include" />
                 <e p="ObjectPooler.cs" t="Include" />
+                <e p="Pathfinding.cs" t="Include" />
                 <e p="ScriptableObjectCreator.cs" t="Include" />
                 <e p="SerializableInterfaces" t="Include">
                   <e p="Editor" t="Include">
@@ -58,6 +201,9 @@
                   <e p="PersistentSingleton.cs" t="Include" />
                   <e p="Singleton.cs" t="Include" />
                 </e>
+                <e p="Sorter.cs" t="Include" />
+                <e p="View.cs" t="Include" />
+                <e p="ViewSet.cs" t="Include" />
               </e>
             </e>
             <e p="Shaders" t="Include">
@@ -102,6 +248,9 @@
                   <e p="SpritesVertexLit.shader" t="Include" />
                 </e>
               </e>
+            </e>
+            <e p="Temporary" t="Include">
+              <e p="SetupLevel.cs" t="Include" />
             </e>
           </e>
         </e>

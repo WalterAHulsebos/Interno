@@ -31,11 +31,12 @@ namespace Core.Pathfinding
         public void GetPath(IMoveable<Node> moveable, Vector2Int to, List<Node> path)
         {
             // fromNode = start position, toNode = end position
+            Debug.Log(moveable.Node);
             Node fromNode = grid[moveable.Node.Position.x, moveable.Node.Position.y], 
                 toNode = grid[to.x, to.y],
                 current = null, 
                 child;
-            Vector2Int gridSize, 
+            Vector2Int gridSize, center, 
                 convertedPosition;
 
             // Reset the lists
@@ -63,7 +64,8 @@ namespace Core.Pathfinding
                 foreach(Move move in moveable.MoveSet.moves)
                 {
                     gridSize = new Vector2Int(move.footPrint.GetLength(0), move.footPrint.GetLength(1));
-
+                    center = move.Center();
+                    
                     // Check moveset for possible moves
                     for (int x = 0; x < gridSize.x; x++)
                         for (int y = 0; y < gridSize.y; y++)
@@ -72,7 +74,7 @@ namespace Core.Pathfinding
                             if (!move.footPrint[x, y])
                                 continue;
 
-                            convertedPosition = new Vector2Int(current.Position.x + x, current.Position.y + y);
+                            convertedPosition = new Vector2Int(current.Position.x + x - center.x, current.Position.y + y - center.y);
 
                             if (grid.IsOutOfBounds(convertedPosition.x, convertedPosition.y))
                                 continue;
@@ -82,14 +84,16 @@ namespace Core.Pathfinding
                             // If this is not walkable in grid and this is not the goal
                             if (!moveable.Walkable(child) && child.Position != to)
                                 continue;
+
                             // If this has been investigated already
                             if (closed.Contains(child))
                                 continue;
+
                             // If this is being investigated but the one being investigated is better
                             if (open.Contains(child))
                                 if (child.Cost <= current.Value)
                                     continue;    
-                            
+
                             // Add child to open with correct information
                             child.Parent = current;
                             child.Cost = current.Value;
@@ -103,6 +107,7 @@ namespace Core.Pathfinding
             if(current.Position != to)
                 return;
 
+            path.Add(current);
             // Get complete path from current node
             while(current.Parent != null)
             {
