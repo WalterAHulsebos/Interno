@@ -44,10 +44,7 @@ public class Player : Combatant
 
         Vector2Int playerNode = gameManager.TileIndexOnNavGrid(PositionOnGrid);
         
-        Debug.Log(playerNode);
-        
         Node = gameManager.NavGrid[playerNode.x, playerNode.y];
-
     }
 
     //public virtual void Convert
@@ -56,27 +53,19 @@ public class Player : Combatant
     /// Moves the Player to destination.
     /// </summary>
     /// <param name="destination"></param>
-    public virtual void Move(Vector2Int navGridDestination, Vector3Int worldDestination)
+    public virtual void Move(Vector2Int navGridDestination, Vector3 worldDestination)
     {
-        //Vector2Int pathDestination = new Vector2Int(destination.x, destination.y); 
-
         GameManager gameManager = GameManager.instance;
         
-        Debug.Log(string.Format("Destination = {0}", navGridDestination));
-        
         List<Node> path = gameManager.GetPath(this, navGridDestination);
-
-        Debug.Log(string.Format("Path.Count = {0}", path.Count));
         
         if (path.Count > 0)
         {
-            Debug.Log("De haarbal rolt");
+            Node = gameManager.NavGrid[navGridDestination.x, navGridDestination.y];
 
-            Node = gameManager.NavGrid[navGridDestination.x, navGridDestination.y]; 
-
-            transform.position = worldDestination; 
+            transform.position = worldDestination;
             
-            EndTurn();   
+            //EndTurn(); //TODO: Functionality.
         }
     }
 }

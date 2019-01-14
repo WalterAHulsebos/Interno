@@ -17,7 +17,7 @@ public class MoveSet : SerializedScriptableObject
     [Required]
     [InlineEditor]
     //[HideLabel]
-    [ListDrawerSettings(Expanded = true, ShowItemCount = false, CustomAddFunction = "AddMove")]
+    [ListDrawerSettings(Expanded = true, ShowItemCount = false, CustomAddFunction = "AddMove", OnTitleBarGUI = "DrawRefreshButton")]
     #endif
     public Move[] moves;
     
@@ -32,4 +32,19 @@ public class MoveSet : SerializedScriptableObject
         
         return moveHolder;
     }
+    
+    #if UNITY_EDITOR
+    private void DrawRefreshButton()
+    {
+        if (SirenixEditorGUI.ToolbarButton(EditorIcons.Refresh))
+        {
+            foreach (Move move in moves)
+            {
+                //TODO: Call the appropriate function in move.
+                
+                Debug.Log(move.name);
+            }
+        }
+    }
+    #endif
 }

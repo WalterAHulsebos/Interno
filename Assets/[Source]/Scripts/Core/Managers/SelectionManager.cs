@@ -212,8 +212,7 @@ namespace Core.Managers
 
                     Vector2Int navGridDestination = GameManager.instance.TileIndexOnNavGrid(cellBounds, gridMousePosition);
                     
-                    player.Move(navGridDestination, gridMousePosition);
-                    Debug.Log("Moving Towards selected tile");
+                    player.Move(navGridDestination, tilemap.CellToWorld(gridMousePosition) + new Vector3(0, .25f, 0)); //cellPosition?
                 }                              
             }
         }
