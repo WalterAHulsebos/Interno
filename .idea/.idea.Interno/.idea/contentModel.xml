@@ -176,6 +176,7 @@
               <e p="Utilities" t="Include">
                 <e p="Attack.cs" t="Include" />
                 <e p="AttackSet.cs" t="Include" />
+                <e p="DataHolders.cs" t="Include" />
                 <e p="Extension Methods" t="Include">
                   <e p="DebugExtension.cs" t="Include" />
                   <e p="DebugExtensionMethods.cs" t="Include" />
