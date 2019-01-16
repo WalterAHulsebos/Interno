@@ -22,4 +22,5 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   moves:
+  - {fileID: 11400000, guid: b4c6be5b29bccf7488ba9ceebf9e1b17, type: 2}
   - {fileID: 11400000, guid: d5d010d6fcdcdbc41b978675a7b6cad7, type: 2}

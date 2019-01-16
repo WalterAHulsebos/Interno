@@ -29,30 +29,12 @@ public class Monster : Combatant
 
         OnIdle();
     }
-
-    public virtual bool CanSee<T>(Combatant other, List<T> set) where T : Move
-    {
-        Vector2Int convertedPosition;
-
-        foreach(T t in set)
-        {
-            convertedPosition = t.ConvertGridToMovePosition(other.Node.Position, Node.Position);
-
-            if (t.footPrint[convertedPosition.x, convertedPosition.y])
-            {
-                if (!t.directConnectionRequired)
-                    return true;
-                if (GameManager.instance.CanSee(Node.Position, other.Node.Position))
-                    return true;
-            }
-        }
-        return false;
-    }
-
+    
     public virtual bool CanAttack(Combatant other)
     {
         return CanSee(other, attackSet.attacks);
-    }
+    }    
+
 
     public override int CompareTo(ICombatable other)
     {

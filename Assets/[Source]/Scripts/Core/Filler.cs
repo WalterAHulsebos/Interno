@@ -9,7 +9,7 @@ namespace Core
     public class Filler : MonoBehaviour, IMoveable<Node>
     {
         [InlineEditor]
-        public MoveSet moveSet;
+        [SerializeField] private MoveSet moveSet;
         
         public MoveSet MoveSet { get { return moveSet; } }
 

@@ -1911,6 +1911,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  weight: 1
-  directConnectionRequired: 0
-  movePositions: []
+  weight: 0
+  directConnectionRequired: 1

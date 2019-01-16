@@ -7,21 +7,8 @@ using Core.Jext;
 using Core.Managers;
 
 public class Player : Combatant
-{
-    [InlineEditor]
-    public WalkableTiles walkableTiles = null;
-
-    public Vector3Int PositionOnGrid
-    {
-        get
-        {
-            return SelectionManager.instance.grid.WorldToCell(transform.position);
-            
-            //TODO: Replace SelectionManager with GameManger.SelectionManager.
-        }
-    }
-    
-    public override int CompareTo(ICombatable other)
+{    
+   public override int CompareTo(ICombatable other)
     {
         return CombatOrder - other.CombatOrder;
     }
@@ -42,15 +29,18 @@ public class Player : Combatant
     {
         GameManager gameManager = GameManager.instance;
 
-        Vector2Int playerNode = gameManager.TileIndexOnNavGrid(PositionOnGrid);
+        Vector2Int playerNode = gameManager.TileIndexOnNavGrid(PositionOnTileGrid);
         
         Node = gameManager.NavGrid[playerNode.x, playerNode.y];
     }
 
-    //public virtual void Convert
-    
+    private void Update()
+    {
+        DebugAvailableDestinations(); //TODO: Only Update this on Moves.
+    }
+
     /// <summary>
-    /// Moves the Player to destination.
+    /// Moves the Player to destination (if possible).
     /// </summary>
     /// <param name="destination"></param>
     public virtual void Move(Vector2Int navGridDestination, Vector3 worldDestination)
@@ -58,9 +48,15 @@ public class Player : Combatant
         GameManager gameManager = GameManager.instance;
         
         List<Node> path = gameManager.GetPath(this, navGridDestination);
+
+        var myPosition = gameManager.TileIndexOnNavGrid(PositionOnTileGrid);
+        
+        Debug.Log(string.Format("Path.Count from {0} to {1} = {2}", myPosition, navGridDestination, path.Count));
         
         if (path.Count > 0)
         {
+            Debug.Log("Path is higher than 0");
+            
             Node = gameManager.NavGrid[navGridDestination.x, navGridDestination.y];
 
             transform.position = worldDestination;

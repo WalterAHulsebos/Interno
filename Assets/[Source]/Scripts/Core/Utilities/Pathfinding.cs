@@ -31,7 +31,7 @@ namespace Core.Pathfinding
         public void GetPath(IMoveable<Node> moveable, Vector2Int to, List<Node> path)
         {
             // fromNode = start position, toNode = end position
-            Debug.Log(moveable.Node);
+            //Debug.Log(moveable.Node);
             Node fromNode = grid[moveable.Node.Position.x, moveable.Node.Position.y], 
                 toNode = grid[to.x, to.y],
                 current = null, 

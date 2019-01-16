@@ -18,14 +18,24 @@ using Core;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
-    // This is being used to determine turn order. Combatants will automatically be added and removed from this object.
+    /// <summary>
+    /// Used to determine turn order. Combatants will automatically be added and removed from this object.
+    /// </summary>
     public CombatManager<Combatant> CombatManager { get; private set; }
-    // This is being used to get paths between positions
+    
+    /// <summary>
+    ///  Use this to get paths between positions.
+    /// </summary>
     public Pathfinding Pathfinding { get; private set; }
-    // This is the current level
+
+    /// <summary>
+    /// The grid used for pathfinding.
+    /// </summary>
     public Node[,] NavGrid { get; private set; }
 
-    // This is used to determine cache size
+    /// <summary>
+    /// Used to determine cache sizes.
+    /// </summary>
     [SerializeField]
     private int maxCombatants = 0, maxFiller = 0;
 
@@ -40,13 +50,19 @@ public class GameManager : PersistentSingleton<GameManager>
     #endregion
 
     #region Level Data
-    // This is all the filler in the current level. Filler will be automatically added and removed.
-    [NonSerialized]
-    public List<Filler> filler;
     
-    [NonSerialized] public GridLayout gridLayout = null; //TODO: Functionality + I don't know if this belongs here, move somewhere else maybe?
+    /// <summary>
+    ///  All the filler in the current level. Filler will be automatically added and removed.
+    /// </summary>
+    [NonSerialized] public List<Filler> filler;
     
-    private List<TileMapComponent> tileMapComponents = new List<TileMapComponent>();
+    public GridLayout TileGrid { get; private set; } //TODO: I don't know if this belongs here, move somewhere else maybe?
+    
+    [NonSerialized] public List<TileMapComponent> tileMapComponents = new List<TileMapComponent>();
+    
+    /// <summary>
+    /// A TileMapComponent contains a Tilemap, TilemapCollider2D, TilemapRenderer and it's SortingLayerIndex 
+    /// </summary>
     public class TileMapComponent : IComparable<TileMapComponent>
     {
         public Tilemap Tilemap { get; set; }
@@ -55,7 +71,7 @@ public class GameManager : PersistentSingleton<GameManager>
             
         public TilemapRenderer Renderer { get; set; }
     
-        private int SortingLayerIndex
+        public int SortingLayerIndex
         {
             get
             {
@@ -99,6 +115,11 @@ public class GameManager : PersistentSingleton<GameManager>
             return -1;
         }
     }
+
+    /// <summary>
+    /// The TilemapComponent that is walkable.
+    /// </summary>
+    public TileMapComponent WalkableTilemap { get; private set; }
     
     private static List<string> SortingLayers
     {
@@ -136,7 +157,8 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         base.Awake();
         CombatManager = new CombatManager<Combatant>(maxCombatants, false);
-        filler = new List<Filler>(maxFiller);    }
+        filler = new List<Filler>(maxFiller);
+    }
 
     /// <summary>
     /// Set level data, initialize pathfinding and node cache.
@@ -147,42 +169,41 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         if (FindObjectOfType<GridLayout>())
         {
-            gridLayout = FindObjectOfType<GridLayout>();
-        } //Get the level's grid
+            TileGrid = FindObjectOfType<GridLayout>();
+        } //Get the levels' gridLayout
         
-        TilemapCollider2D[] tilemapColliders = gridLayout.GetComponentsInChildren<TilemapCollider2D>();
-
+        TilemapCollider2D[] tilemapColliders = TileGrid.GetComponentsInChildren<TilemapCollider2D>();
         foreach (TilemapCollider2D tilemapCollider in tilemapColliders)
         {
             TilemapRenderer tilemapRenderer = tilemapCollider.GetComponent<TilemapRenderer>(); //Find the attached renderer.
-
             Tilemap tilemap = tilemapCollider.GetComponent<Tilemap>(); //Find the attached tilemap.
 
-            if (tilemapRenderer != null)
+            if (tilemapRenderer != null && tilemap != null)
             {
-                tileMapComponents.Add(new TileMapComponent()
+                TileMapComponent thisTileMapComponent = new TileMapComponent()
                 {
                     Tilemap = tilemap,
                     Collider2D = tilemapCollider,
                     Renderer = tilemapRenderer
-                });
+                };
+
+                tileMapComponents.Add(thisTileMapComponent);
+
+                if (tilemapRenderer.sortingLayerName == "Default")
+                {
+                    WalkableTilemap = thisTileMapComponent;
+
+                    NavGrid = GenerateGrid(thisTileMapComponent.Tilemap);
+                    
+                    NavGrid.Init();
+                }
             }
         }
 
-        foreach (TileMapComponent tileMapComponent in tileMapComponents)
-        {
-            string sortingLayerName = tileMapComponent.Renderer.sortingLayerName;
-
-            if (sortingLayerName == "Default")
-            {
-                NavGrid = GenerateGrid(tileMapComponent.Tilemap);
-                
-                NavGrid.Init();
-                
-                break; //TODO: Remove?
-            }
-        }
-
+        //MethodInfo method = GetType().GetMethod(DebugNavGrid);
+        
+        InvokeRepeating("DebugNavGrid",0 , 10f); //TODO: Replace this so it only updates on a new turn.
+        
         Pathfinding = new Pathfinding(NavGrid);
         nodeCache = new List<Node>(NavGrid.GetLength(0) * NavGrid.GetLength(1));
     }
@@ -236,8 +257,7 @@ public class GameManager : PersistentSingleton<GameManager>
     }
     #endregion
 
-    // Not the perfect place for this function, but did it for the cache. Might make a seperate script for this
-    
+    // Not the perfect place for this function, but did it for the cache. Might make a separate script for this.
     /// <summary>
     /// Used for objects to check if an object can see amother object
     /// </summary>
@@ -288,26 +308,10 @@ public class GameManager : PersistentSingleton<GameManager>
         foreach (Vector3Int position in cellBounds.allPositionsWithin)
         {
             numberOfTiles++;
-            
-            Vector3 worldPos = tilemap.CellToWorld(position);
-            
-            //Debug.Log(string.Format("Bounds = {0}", tilemap.cellBounds));
 
             Vector2Int gridIndex = TileIndexOnNavGrid(cellBounds, position); 
             
             nodes[gridIndex.x, gridIndex.y] = new Node(){Walkable = tilemap.HasTile(position)};
-
-            Vector3 adjustedWorldPos = worldPos + new Vector3(0, .25f, 0);
-            
-            if ((displayGizmos) && tilemap.HasTile(position))
-            {                
-                //Debug.Log(string.Format("Tile: {0} - Position: {1}", tilemap.GetTile(position).name, position));
-                DebugExtension.DebugArrow(adjustedWorldPos, Vector3.back, Color.blue, 100f);
-            }
-            else
-            {
-                DebugExtension.DebugArrow(adjustedWorldPos, Vector3.back, Color.red, 100f);
-            }
         }
 
         Debug.Log(string.Format("NumberofTiles = {0}", numberOfTiles));
@@ -315,20 +319,48 @@ public class GameManager : PersistentSingleton<GameManager>
         return nodes;
     }
 
+    #if UNITY_EDITOR
+    private void DebugNavGrid()
+    {
+        Tilemap tilemap = WalkableTilemap.Tilemap;
+        
+        foreach (Vector3Int position in tilemap.cellBounds.allPositionsWithin)
+        {
+            Vector3 worldPosition = tilemap.CellToWorld(position) + new Vector3(0, .25f, 0);
+
+            if ((displayGizmos) && tilemap.HasTile(position))
+            {
+                DebugExtension.DebugArrow(worldPosition, Vector3.back, Color.blue, 10f);
+            }
+            else
+            {
+                DebugExtension.DebugArrow(worldPosition, Vector3.back, Color.red, 10f);
+            }
+        }
+    }
+    #endif
+    
     /// <summary>
-    /// Gets a tiles' index on navGridwithin bounds
+    /// Gets a tiles' index on NavGrid within bounds
     /// </summary>
     /// <param name="tilePosition"></param>
     /// <returns></returns>
     public Vector2Int TileIndexOnNavGrid(Vector3Int tilePosition)
     {
-        foreach (TileMapComponent tileMapComponent in tileMapComponents)
+        if (WalkableTilemap != null)
         {
-            string sortingLayerName = tileMapComponent.Renderer.sortingLayerName;
-
-            if (sortingLayerName == "Default")
+            return TileIndexOnNavGrid(WalkableTilemap.Tilemap.cellBounds, tilePosition);
+        }
+        else
+        {
+            foreach (TileMapComponent tileMapComponent in tileMapComponents)
             {
-                return TileIndexOnNavGrid(tileMapComponent.Tilemap.cellBounds, tilePosition);
+                string sortingLayerName = tileMapComponent.Renderer.sortingLayerName;
+
+                if (sortingLayerName == "Default")
+                {
+                    return TileIndexOnNavGrid(tileMapComponent.Tilemap.cellBounds, tilePosition);
+                }
             }
         }
 
@@ -337,7 +369,7 @@ public class GameManager : PersistentSingleton<GameManager>
     }
     
     /// <summary>
-    /// Gets a tiles' index within bounds
+    /// Gets a tiles' index on NavGrid within bounds
     /// </summary>
     /// <param name="bounds"></param>
     /// <param name="tilePosition"></param>
@@ -346,24 +378,54 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         Vector3Int gridIndex = tilePosition - bounds.min;
         
-        if(debugging){Debug.Log(string.Format("TilePosition = {0} , GridIndex = {1}", tilePosition, gridIndex));}
-        
-        /*
-        int x = 0;
-        for (int xBounds = bounds.xMin; xBounds < bounds.xMax; xBounds++)
-        {
-            x++;
+        if(debugging){Debug.Log(string.Format("TilePosition = {0} , NavGridIndex = {1}", tilePosition, gridIndex));}
 
-            int y = 0;
-            for (int yBounds = bounds.yMin; yBounds < bounds.yMax; yBounds++)
+        return new Vector2Int(gridIndex.x, gridIndex.y);
+    }
+   
+    
+    /// <summary>
+    /// Gets a nodes' index on TileGrid within bounds
+    /// </summary>
+    /// <param name="nodePosition"></param>
+    /// <returns></returns>
+    public Vector3Int NodeIndexOnTileGrid(Vector2Int nodePosition)
+    {
+        if (WalkableTilemap != null)
+        {
+            return NodeIndexOnTileGrid(WalkableTilemap.Tilemap.cellBounds, nodePosition);
+        }
+        else
+        {
+            foreach (TileMapComponent tileMapComponent in tileMapComponents)
             {
-                y++;
-                
-                Debug.Log(string.Format("BoundsCoordinates = ({0}, {1}) TileGridIndex = ({2}, {3})", xBounds, yBounds, x-1, y-1));
+                string sortingLayerName = tileMapComponent.Renderer.sortingLayerName;
+
+                if (sortingLayerName == "Default")
+                {
+                    return NodeIndexOnTileGrid(tileMapComponent.Tilemap.cellBounds, nodePosition);
+                }
             }
         }
-        */     
+
+        Debug.LogError("No Tilemap with sortingLayer 'Default' in scene");
+        return Vector3Int.zero;
+    }
+    
+    /// <summary>
+    /// Gets a nodes' index on TileGrid within bounds
+    /// </summary>
+    /// <param name="bounds"></param>
+    /// <param name="nodePosition"></param>
+    /// <returns></returns>
+    public Vector3Int NodeIndexOnTileGrid(BoundsInt bounds, Vector2Int nodePosition)
+    {
+        Vector3Int adjustedNodePosition = new Vector3Int(nodePosition.x, nodePosition.y, 0);
         
-        return new Vector2Int(gridIndex.x, gridIndex.y);
+        Vector3Int tileGridIndex = adjustedNodePosition + bounds.min;
+        
+        if(debugging){Debug.Log(string.Format("NodePosition = {0} , TileGridIndex = {1}", nodePosition, tileGridIndex));}
+
+        return tileGridIndex;
     }
 }

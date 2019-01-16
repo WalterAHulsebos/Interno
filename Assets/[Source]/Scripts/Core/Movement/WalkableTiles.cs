@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine.Tilemaps;
@@ -13,5 +14,5 @@ public class WalkableTiles : SerializedScriptableObject
     [InlineEditor]
     [ListDrawerSettings(Expanded = true, ShowItemCount = false)]
 #endif
-    public Tile[] walkableTiles;
+    public List<Tile> tiles;
 }

@@ -18,7 +18,7 @@ public class Move : SerializedScriptableObject
     public bool directConnectionRequired;
 
     #region Conversion
-    public List<Vector2Int> movePositions;
+    [HideInInspector] public List<Vector2Int> movePositions;
 
     public virtual void ConvertGridToList()
     {

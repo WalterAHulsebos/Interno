@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  walkableTiles:
+  tiles:
   - {fileID: 11400000, guid: bcc7fb5548013c34095192c4b82fe46a, type: 2}
   - {fileID: 11400000, guid: 85bfbc6c6488b6f4db211dede277768f, type: 2}
   - {fileID: 11400000, guid: fde755ffc109b984084b2d999ccfd11e, type: 2}

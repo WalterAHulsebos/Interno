@@ -161,17 +161,14 @@ namespace Core.Managers
         }
 
         /// <summary>
-        /// Checks if you can select a tile at your current mouse Position. If you can it activates certain behaviours.
+        /// Checks if you can select a tile at your current mouse Position. If you can it activates behaviours based on the tile type.
         /// </summary>
         private void SelectionCheck()
         {
-            foreach (var tileMapComponent in tileMapComponents) //Checks each tilemap for a hit.
+            foreach (TileMapComponent tileMapComponent in tileMapComponents) //Checks each tilemap for a hit.
             {
-                TileBase tile;
-                //if (Input.GetMouseButtonDown(0))             //TODO: Replace this.
-
                 Tilemap tilemap = tileMapComponent.Tilemap;
-                
+                TileBase tile;   
                 if (TilemapCast(tilemap, out tile))
                 {
                     string sortingLayerName = tileMapComponent.Renderer.sortingLayerName;
@@ -181,7 +178,8 @@ namespace Core.Managers
                         case "Default":
                             canSelectTile = true;
                             
-                            SelectWalkable(tilemap);
+                            //SelectWalkable(tilemap);
+                            SelectWalkable();
 
                             break;
                         case "Interactable":
@@ -195,8 +193,22 @@ namespace Core.Managers
             }
         }
     
-        private void SelectWalkable(Tilemap tilemap)
+        private bool TilemapCast(Tilemap tilemap, out TileBase tileBase)
         {
+            Vector3Int position = GridMousePosition();
+
+            return player.CheckCell(position, tilemap, out tileBase);
+        }
+        
+        private void SelectWalkable()
+        {
+            Tilemap tilemap = GameManager.instance.WalkableTilemap.Tilemap;
+            
+            SelectWalkable(tilemap);
+        }
+        
+        private void SelectWalkable(Tilemap tilemap)
+        {            
             Vector3Int gridMousePosition = GridMousePosition();
             
             Vector3 cellPosition = grid.CellToWorld(gridMousePosition) + new Vector3(0, .5f, 0);
@@ -204,126 +216,45 @@ namespace Core.Managers
             
             if (Input.GetMouseButtonDown(0))
             {
-                List<Vector3Int> availableDestinationTiles = AvailableDestinationTiles(tilemap);
+                List<Vector3Int> availableDestinationTiles = player.AvailableDestinationTiles(tilemap);
                 
                 if (availableDestinationTiles.Contains(gridMousePosition))
                 {
+                    Debug.Log("AvailableDestinationTiles contains GridMousePosition!");
+                    
                     BoundsInt cellBounds = tilemap.cellBounds;
 
                     Vector2Int navGridDestination = GameManager.instance.TileIndexOnNavGrid(cellBounds, gridMousePosition);
                     
                     player.Move(navGridDestination, tilemap.CellToWorld(gridMousePosition) + new Vector3(0, .25f, 0)); //cellPosition?
-                }                              
+                }
+                else
+                {                    
+                    Debug.Log("AvailableDestinationTiles does NOT contain GridMousePosition!");
+                }
+
             }
         }
+        
 
         private void SelectInteractable()
         {
+            Vector3Int gridMousePosition = GridMousePosition();
+            
+            Vector3 cellPosition = grid.CellToWorld(gridMousePosition) + new Vector3(0, .5f, 0);
+            selectionOutline.transform.position = cellPosition;
+
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Flaarp");                                
+                
             }
-            
+
             //TODO: Actual Behaviour
         }
 
         private Vector3Int GridMousePosition()
         {
             return grid.WorldToCell(selectionCamera.ScreenToWorldPoint(Input.mousePosition));
-        }
-
-        private List<Vector3Int> AvailableDestinationTiles(Tilemap tilemap) //TODO: Better naming
-        {
-            Vector3Int playerPosition = player.PositionOnGrid;
-
-            List<Vector3Int> totalAvailableTiles = new List<Vector3Int>();
-
-            foreach (Move move in player.MoveSet.moves) //Goes through every single move in the Unit's movelist...
-            {
-                totalAvailableTiles.AddRange(CheckMove(playerPosition, move, tilemap)); //And adds all available destination tiles in a list.
-            }
-
-            return totalAvailableTiles;
-        }
-        
-        private List<Vector3Int> CheckMove(Vector3Int playerPosition, Move move, Tilemap tilemap)
-        {
-            List<Vector3Int> availableTiles = new List<Vector3Int>();
-            
-            Vector3Int startingPosition = playerPosition + new Vector3Int(
-                -((move.footPrint.GetLength(0)/2)), -((move.footPrint.GetLength(1)/2)), 0);
-            
-            Debug.Log(string.Format("PlayerPos = {0},  StartingPos = {1}, MousePos = {2}", playerPosition.ToString(), startingPosition.ToString(), GridMousePosition().ToString()));
-
-            Vector3Int checkPosition = startingPosition;
-            
-            for (int x = 0; x <= move.footPrint.GetLength(0) -1; x++)
-            {
-                checkPosition.x = startingPosition.x + x;
-                
-                for (int y = 0; y <= move.footPrint.GetLength(1) -1; y++)
-                {
-                    checkPosition.y = startingPosition.y + y;
-                    
-                    if (move.footPrint[x, y] == true)
-                    {
-                        TileBase tile = null;
-
-                        if (CheckCell(checkPosition, tilemap, out tile))
-                        {
-                            availableTiles.Add(checkPosition);
-                        }
-                    }
-                }
-            }
-
-            return availableTiles;
-        }
-
-        private bool TilemapCast(Tilemap tilemap, out TileBase tileBase)
-        {
-            //Vector3Int position = GridMousePosition();
-
-            //return CheckCell(position, tilemap, out tileBase); //deprecated
-            
-            TileBase tile = tilemap.GetTile(GridMousePosition());
-
-            if (tile != null)
-            {
-                tileBase = tile;
-                return true;
-            }
-            else
-            {
-                tileBase = null;
-                return false;
-            }
-        }
-    
-        private bool CheckCell(Vector3Int position, Tilemap tilemap, out TileBase tileBase)
-        {
-            TileBase tile = tilemap.GetTile(position);
-
-            if (tile != null)
-            {
-                //if(tile) //TODO: Check if tile is in WalkableTiles list.
-                if (player.walkableTiles.walkableTiles.Contains(tile))
-                {
-                    tileBase = tile;
-                    return true;
-                }
-                else
-                {
-                    tileBase = null;
-                    return false;
-                } //EDIT: Redundant, maar ik ben moe.
-               
-            }
-            else
-            {
-                tileBase = null;
-                return false;
-            }
         }
     }
 }
