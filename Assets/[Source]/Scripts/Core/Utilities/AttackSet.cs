@@ -8,7 +8,7 @@ using Sirenix.Utilities.Editor;
 [CreateAssetMenu(fileName = "New AttackSet", menuName = "AttackSets/Create AttackSet")]
 public class AttackSet
 {
-    public List<Attack> attacks = new List<Attack>();
+    public Attack[] attacks;
 
 #if UNITY_EDITOR
     private void DrawRefreshButton()

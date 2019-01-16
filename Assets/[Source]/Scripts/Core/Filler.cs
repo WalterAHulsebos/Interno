@@ -36,5 +36,10 @@ namespace Core
         {
             GameManager.instance.filler.Remove(this);
         }
+
+        public virtual bool CanSee<T>(Node other, T[] set) where T : Move
+        {
+            return true;
+        }
     }
 }

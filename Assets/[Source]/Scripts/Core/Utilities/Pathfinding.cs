@@ -79,6 +79,9 @@ namespace Core.Pathfinding
                         if (!moveable.Walkable(child) && child.Position != to)
                             continue;
 
+                        if(move.directConnectionRequired)
+                            if (!moveable.CanSee(child, moveable.MoveSet.moves))
+                                continue;
                         // If this has been investigated already
                         if (closed.Contains(child))
                             continue;
@@ -122,6 +125,7 @@ namespace Core.Pathfinding
         bool HorizontalMovement { get; }
         bool VerticalMovement { get; }
         bool Walkable(T node);
+        bool CanSee<U>(T other, U[] set) where U : Move;
     }
 
     /// <summary>

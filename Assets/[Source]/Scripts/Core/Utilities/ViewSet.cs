@@ -8,7 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New ViewSet", menuName = "ViewSets/Create ViewSet")]
 public class ViewSet
 {
-    public List<View> views = new List<View>();
+    public View[] views;
 
 #if UNITY_EDITOR
     private void DrawRefreshButton()

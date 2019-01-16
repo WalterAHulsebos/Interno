@@ -20,7 +20,7 @@ public class Monster : Combatant
         {
             if (combatant.teamID == teamID)
                 continue;
-            if (!CanSee(combatant, viewSet.views))
+            if (!CanSee(combatant.Node, viewSet.views))
                 continue;
 
             OnVisibleOpponent(combatant);
@@ -32,7 +32,7 @@ public class Monster : Combatant
     
     public virtual bool CanAttack(Combatant other)
     {
-        return CanSee(other, attackSet.attacks);
+        return CanSee(other.Node, attackSet.attacks);
     }    
 
 

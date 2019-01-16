@@ -5,9 +5,6 @@ using Core.Combat;
 using Core;
 using Sirenix.OdinInspector;
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditorInternal;
@@ -80,19 +77,19 @@ public abstract class Combatant : Filler, ICombatable, IDamageable
         }
     }
 
-    protected virtual bool CanSee<T>(Combatant other, List<T> set) where T : Move
+    public override bool CanSee<T>(Node other, T[] set)
     {
         Vector2Int convertedPosition;
 
         foreach (T t in set)
         {
-            convertedPosition = t.ConvertGridToMovePosition(other.Node.Position, Node.Position);
+            convertedPosition = t.ConvertGridToMovePosition(other.Position, Node.Position);
 
             if (t.footPrint[convertedPosition.x, convertedPosition.y])
             {
                 if (!t.directConnectionRequired)
                     return true;
-                if (GameManager.instance.CanSee(Node.Position, other.Node.Position))
+                if (GameManager.instance.CanSee(Node.Position, other.Position))
                     return true;
             }
         }
