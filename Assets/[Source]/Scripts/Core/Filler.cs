@@ -27,6 +27,11 @@ namespace Core
             return false;
         }
 
+        public bool Walkable(Vector2Int from, Vector2Int to)
+        {
+            return GameManager.instance.CanWalk(this, from, to);
+        }
+
         protected virtual void NotifyExistence()
         {
             GameManager.instance.filler.Add(this);

@@ -273,6 +273,15 @@ public class GameManager : PersistentSingleton<GameManager>
         return !nodeCache.IsLineInterrupted();
     }
 
+    public bool CanWalk(IMoveable<Node> moveable, Vector2Int from, Vector2Int to)
+    {
+        nodeCache.Clear();
+        NavGrid.GetLine(nodeCache, from, to);
+        nodeCache.RemoveAt(0);
+        nodeCache.RemoveAt(nodeCache.Count - 1);
+        return nodeCache.IsLineWalkable(moveable);
+    }
+
     /// <summary>
     /// Use A* to get a path to target destination
     /// </summary>

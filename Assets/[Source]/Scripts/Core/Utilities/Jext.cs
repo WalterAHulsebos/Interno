@@ -153,5 +153,16 @@ namespace Core.Jext
                         return true;
             return false;
         }
+
+        public static bool IsLineWalkable(this List<Node> line, IMoveable<Node> moveable)
+        {
+            if (line.IsLineInterrupted())
+                return false;
+            int lineCount = line.Count;
+            for (int i = 0; i < lineCount; i++)
+                if (!moveable.Walkable(line[i]))
+                    return false;
+            return true;
+        }
     }
 }
