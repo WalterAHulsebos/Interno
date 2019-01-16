@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Heap;
 using Core.Jext;
+using Core.Inferno;
 
 namespace Core.Pathfinding
 {

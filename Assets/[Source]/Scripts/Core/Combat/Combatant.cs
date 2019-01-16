@@ -13,6 +13,7 @@ using System.Linq;
 using Core.Utilities;
 using Sirenix.Utilities;
 using Core.Jext;
+using Core.Inferno;
 
 public abstract class Combatant : Filler, ICombatable, IDamageable
 {

@@ -14,6 +14,7 @@ using Core.Pathfinding;
 using Core.Utilities;
 using Core.Combat;
 using Core.Jext;
+using Core.Inferno;
 using Core;
 
 public class GameManager : PersistentSingleton<GameManager>

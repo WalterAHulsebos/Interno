@@ -122,16 +122,33 @@ namespace Core.Jext
                 }
         }
 
-        public static Vector2Int ConvertMoveToGridPosition(this Move move, Vector2Int movePosition)
+        public static bool IsLineInterrupted<T>(this List<T> line) where T : INodeable<T>
         {
-            Vector2Int center = move.Center();
-            return new Vector2Int(movePosition.x - center.x, move.footPrint.GetLength(1) - movePosition.y - center.y);
+            int lineCount = line.Count;
+            foreach(Filler filler in GameManager.instance.filler)
+                for (int i = 0; i < lineCount; i++)
+                    if (filler.Node.Position == line[i].Position)
+                        return true;
+            return false;
         }
+    }
+}
 
-        public static Vector2Int ConvertGridToMovePosition(this Move move, Vector2Int gridPosition, Vector2Int from)
+namespace Core.Inferno
+{
+    using Jext;
+
+    public static class JextInferno
+    {
+        public static bool IsLineWalkable(this List<Node> line, IMoveable<Node> moveable)
         {
-            Vector2Int center = move.Center();
-            return new Vector2Int(gridPosition.x - from.x + center.x, move.footPrint.GetLength(1) - (gridPosition.y - from.y + center.y));
+            if (line.IsLineInterrupted())
+                return false;
+            int lineCount = line.Count;
+            for (int i = 0; i < lineCount; i++)
+                if (!moveable.Walkable(line[i]))
+                    return false;
+            return true;
         }
 
         public static Vector2Int Center(this Move move)
@@ -144,25 +161,16 @@ namespace Core.Jext
             return move[point.x, point.y];
         }
 
-        public static bool IsLineInterrupted<T>(this List<T> line) where T : INodeable<T>
+        public static Vector2Int ConvertMoveToGridPosition(this Move move, Vector2Int movePosition)
         {
-            int lineCount = line.Count;
-            foreach(Filler filler in GameManager.instance.filler)
-                for (int i = 0; i < lineCount; i++)
-                    if (filler.Node.Position == line[i].Position)
-                        return true;
-            return false;
+            Vector2Int center = move.Center();
+            return new Vector2Int(movePosition.x - center.x, move.footPrint.GetLength(1) - movePosition.y - center.y);
         }
 
-        public static bool IsLineWalkable(this List<Node> line, IMoveable<Node> moveable)
+        public static Vector2Int ConvertGridToMovePosition(this Move move, Vector2Int gridPosition, Vector2Int from)
         {
-            if (line.IsLineInterrupted())
-                return false;
-            int lineCount = line.Count;
-            for (int i = 0; i < lineCount; i++)
-                if (!moveable.Walkable(line[i]))
-                    return false;
-            return true;
+            Vector2Int center = move.Center();
+            return new Vector2Int(gridPosition.x - from.x + center.x, move.footPrint.GetLength(1) - (gridPosition.y - from.y + center.y));
         }
     }
 }
