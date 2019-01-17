@@ -1913,3 +1913,4 @@ MonoBehaviour:
       Data: 
   weight: 0
   directConnectionRequired: 1
+  movePositions: []
